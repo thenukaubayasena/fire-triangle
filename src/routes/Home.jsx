@@ -1,19 +1,23 @@
 import React from "react";
 import styled from "styled-components";
 import Banner from "../components/homeComponents/Banner";
-import PopularDestinations from "../components/homeComponents/PopluarDestinations";
-import ThemeTours from "../components/homeComponents/ThemeTours";
-import Services from "../components/homeComponents/Services";
-import FAQ from "../components/homeComponents/FAQ";
+import WelcomeMessage from "../components/homeComponents/WelcomeMessage";
+import Projects from "../components/homeComponents/Projects";
+import Clients from "../components/homeComponents/Clients";
+import Products from "../components/homeComponents/Products";
+import SuccessStories from "../components/homeComponents/SuccessStories";
+import ScheduleCall from "../components/homeComponents/ScheduleCall";
 
 const Home = () => {
   return (
     <Container>
       <div className="section"><Banner /></div>
-      <div className="section"><PopularDestinations /></div>
-      <div className="section"><Services /></div>
-      <div className="section"><ThemeTours /></div>
-      <div className="section"><FAQ /></div>
+      <div className="section"><WelcomeMessage /></div>
+      <div className="section"><Clients /></div>
+      <div className="section"><Projects /></div>
+      <div className="section"><Products /></div>
+      <div className="section"><SuccessStories /></div>
+      <div className="section"><ScheduleCall /></div>
     </Container>
   );
 };
@@ -21,7 +25,7 @@ const Container = styled.div`
   padding: 0;
   /* overflow-x: hidden; */
   .section {
-    margin-bottom: -5rem; 
+    margin-bottom: 0rem; 
   }
 
   .section:last-child {
