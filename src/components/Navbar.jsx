@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { FaBars, FaTimes, FaPhoneAlt } from "react-icons/fa";
+import { MdFireExtinguisher, MdSecurity, MdAssessment, MdSchool } from "react-icons/md";
 import logo from "../assets/logo.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeTab, setActiveTab] = useState("home");
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -16,14 +18,21 @@ const Navbar = () => {
     // Set active tab based on pathname
     const path = location.pathname.split('/')[1] || 'home';
     setActiveTab(path);
+
+    // Handle scroll effect
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, [location.pathname]);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <NavContainer>
+    <NavContainer $scrolled={scrolled}>
       <LogoLink to="/">
-        <Logo src={logo} alt="Company Logo" />
+        <Logo src={logo} alt="Fire Triangle Logo" />
       </LogoLink>
 
       <Hamburger onClick={toggleMenu}>
@@ -34,18 +43,25 @@ const Navbar = () => {
         <NavItem to="/" $isActive={activeTab === "home"}>
           Home
         </NavItem>
-        <NavItem to="/about-us" $isActive={activeTab === "about-us"}>
-          About Us
+        <NavItem to="/services" $isActive={activeTab === "services"}>
+          <MdFireExtinguisher /> Services
         </NavItem>
-        <NavItem to="/destinations" $isActive={activeTab === "destinations"}>
-          Destinations
+        <NavItem to="/products" $isActive={activeTab === "products"}>
+          <MdSecurity /> Products
         </NavItem>
-        <NavItem to="/current-packages" $isActive={activeTab === "current-packages"}>
-          Current Packages
+        <NavItem to="/projects" $isActive={activeTab === "projects"}>
+          <MdAssessment /> Projects
         </NavItem>
-        <NavItem to="/form" $isActive={activeTab === "form"}>
-          Booking Form
+        <NavItem to="/training" $isActive={activeTab === "training"}>
+          <MdSchool /> Training
         </NavItem>
+        <NavItem to="/contact" $isActive={activeTab === "contact"}>
+          Contact
+        </NavItem>
+        
+        <EmergencyContact href="tel:+94112345678">
+          <FaPhoneAlt /> Emergency
+        </EmergencyContact>
       </NavMenu>
 
       <Overlay isOpen={isOpen} onClick={toggleMenu} />
@@ -59,8 +75,8 @@ const NavContainer = styled.nav`
   top: 0;
   left: 0;
   right: 0;
-  height: 80px;
-  background: rgba(255, 255, 255, 0.9);
+  height: ${props => props.$scrolled ? '70px' : '80px'};
+  background: ${props => props.$scrolled ? 'rgba(42, 42, 42, 0.98)' : '#2a2a2a'};
   backdrop-filter: blur(10px);
   display: flex;
   justify-content: space-between;
@@ -68,6 +84,11 @@ const NavContainer = styled.nav`
   padding: 0 5%;
   z-index: 1000;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+
+  @media (max-width: 768px) {
+    height: 70px;
+  }
 `;
 
 const LogoLink = styled(Link)`
@@ -75,23 +96,28 @@ const LogoLink = styled(Link)`
 `;
 
 const Logo = styled.img`
-  height: 40px;
+  height: ${props => props.$scrolled ? '35px' : '40px'};
   width: auto;
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
+  filter: brightness(0) invert(1);
 
   &:hover {
     transform: scale(1.05);
   }
 
   @media (max-width: 768px) {
-    height: 35px;
+    height: 30px;
   }
 `;
 
 const NavMenu = styled.div`
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
   align-items: center;
+
+  @media (max-width: 992px) {
+    gap: 1rem;
+  }
 
   @media (max-width: 768px) {
     position: fixed;
@@ -99,13 +125,13 @@ const NavMenu = styled.div`
     right: ${({ isOpen }) => (isOpen ? '0' : '-100%')};
     width: 70%;
     height: 100vh;
-    background: white;
+    background: #2a2a2a;
     flex-direction: column;
     justify-content: center;
-    gap: 2.5rem;
+    gap: 2rem;
     transition: right 0.3s ease-in-out;
     z-index: 1000;
-    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
   }
 
   @media (max-width: 480px) {
@@ -115,14 +141,17 @@ const NavMenu = styled.div`
 
 const NavItem = styled(Link)`
   position: relative;
-  color: ${({ $isActive }) => ($isActive ? 'var(--primaryColor)' : '#333')};
+  color: ${({ $isActive }) => ($isActive ? '#d32f2f' : 'white')};
   font-weight: ${({ $isActive }) => ($isActive ? '600' : '400')};
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 0.95rem;
   transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 
   &:hover {
-    color: var(--primaryColor);
+    color: #d32f2f;
   }
 
   &::after {
@@ -132,7 +161,7 @@ const NavItem = styled(Link)`
     left: 0;
     width: ${({ $isActive }) => ($isActive ? '100%' : '0')};
     height: 2px;
-    background: var(--primaryColor);
+    background: #d32f2f;
     transition: width 0.3s ease;
   }
 
@@ -140,9 +169,38 @@ const NavItem = styled(Link)`
     width: 100%;
   }
 
+  svg {
+    font-size: 1.1rem;
+  }
+
   @media (max-width: 768px) {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     padding: 0.5rem 0;
+  }
+`;
+
+const EmergencyContact = styled.a`
+  background: #d32f2f;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  font-weight: 600;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+
+  &:hover {
+    background: #b71c1c;
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 768px) {
+    margin-top: 1rem;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
   }
 `;
 
@@ -150,7 +208,7 @@ const Hamburger = styled.div`
   display: none;
   cursor: pointer;
   z-index: 1001;
-  color: #333;
+  color: white;
   font-size: 1.5rem;
   transition: transform 0.3s ease;
 

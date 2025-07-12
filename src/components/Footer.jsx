@@ -1,59 +1,84 @@
 import React from "react";
 import styled from "styled-components";
-import logo from "../assets/logo.png";
-import { FaPhoneAlt, FaFacebook, FaYoutube } from "react-icons/fa";
+import logo from "../assets/logo.png"; // Update with your logo
+import { FaPhoneAlt, FaMapMarkerAlt, FaClock, FaFireExtinguisher, FaShieldAlt } from "react-icons/fa";
 import { IoMail } from "react-icons/io5";
-import { RiInstagramFill } from "react-icons/ri";
+import { RiFireFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
     <FooterContainer>
       <FooterTop>
-        <LogoContainer>
-          <Logo src={logo} alt="CocoBudget Logo" />
-        </LogoContainer>
+        <CompanyInfo>
+          <LogoContainer>
+            <Logo src={logo} alt="Fire Triangle Logo" />
+          </LogoContainer>
+          <Tagline>Your Complete Fire Safety Solution in Sri Lanka</Tagline>
+          <CertificationBadge>
+            <FaShieldAlt /> ISO 9001 Certified
+          </CertificationBadge>
+        </CompanyInfo>
 
         <FooterContent>
           <QuickLinks>
-            <SectionTitle>Quick Links</SectionTitle>
-            <FooterLink to="/">Home</FooterLink>
-            <FooterLink to="/about-us">About Us</FooterLink>
-            <FooterLink to="/destinations">Destinations</FooterLink>
-            <FooterLink to="/current-packages">Current Packages</FooterLink>
-            <FooterLink to="/form">Booking Form</FooterLink>
+            <SectionTitle>Our Services</SectionTitle>
+            <FooterLink to="/fire-extinguishers">
+              <FaFireExtinguisher /> Fire Extinguishers
+            </FooterLink>
+            <FooterLink to="/alarm-systems">
+              <RiFireFill /> Alarm Systems
+            </FooterLink>
+            <FooterLink to="/sprinkler-systems">
+              <RiFireFill /> Sprinkler Systems
+            </FooterLink>
+            <FooterLink to="/risk-assessments">
+              <FaShieldAlt /> Risk Assessments
+            </FooterLink>
+            <FooterLink to="/training">
+              <FaShieldAlt /> Safety Training
+            </FooterLink>
           </QuickLinks>
 
           <ContactInfo>
             <SectionTitle>Contact Us</SectionTitle>
             <ContactItem>
               <ContactIcon>
-                <IoMail />
+                <FaMapMarkerAlt />
               </ContactIcon>
-              <ContactText>cocobudget.travels@gmail.com</ContactText>
+              <ContactText>123 Safety Avenue, Colombo, Sri Lanka</ContactText>
             </ContactItem>
             <ContactItem>
               <ContactIcon>
                 <FaPhoneAlt />
               </ContactIcon>
-              <ContactText>+358 44 245 8212 / +94 70 552 8650</ContactText>
+              <ContactText>+94 11 234 5678 (24/7 Emergency)</ContactText>
             </ContactItem>
-            <SocialLinks>
-              <SocialLink href="https://www.instagram.com/cocobudget.travels/" target="_blank" aria-label="Instagram">
-                <RiInstagramFill />
-              </SocialLink>
-              <SocialLink href="https://www.facebook.com/profile.php?id=61577163428909" target="_blank" aria-label="Facebook">
-                <FaFacebook />
-              </SocialLink>
-            </SocialLinks>
+            <ContactItem>
+              <ContactIcon>
+                <IoMail />
+              </ContactIcon>
+              <ContactText>safety@firetriangle.lk</ContactText>
+            </ContactItem>
+            <ContactItem>
+              <ContactIcon>
+                <FaClock />
+              </ContactIcon>
+              <ContactText>Mon-Sat: 8:00 AM - 5:00 PM</ContactText>
+            </ContactItem>
           </ContactInfo>
         </FooterContent>
       </FooterTop>
 
       <FooterBottom>
         <Copyright>
-          &copy; {new Date().getFullYear()} CocoBudget Travels. All rights reserved.
+          &copy; {new Date().getFullYear()} Fire Triangle (Pvt) Ltd. All rights reserved.
         </Copyright>
+        <LegalLinks>
+          <LegalLink to="/privacy-policy">Privacy Policy</LegalLink>
+          <LegalLink to="/terms">Terms of Service</LegalLink>
+          <LegalLink to="/sitemap">Sitemap</LegalLink>
+        </LegalLinks>
       </FooterBottom>
     </FooterContainer>
   );
@@ -61,9 +86,9 @@ const Footer = () => {
 
 // Styled Components
 const FooterContainer = styled.footer`
-  background: #f8f9fa;
-  padding: 2rem 5%;
-  border-top: 1px solid #e0e0e0;
+  background: #2a2a2a;
+  color: white;
+  padding: 3rem 5%;
 `;
 
 const FooterTop = styled.div`
@@ -71,11 +96,11 @@ const FooterTop = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
-  gap: 2rem;
-  max-width: 900px;
+  gap: 3rem;
+  max-width: 1200px;
   margin: 0 auto;
   padding-bottom: 2rem;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -84,27 +109,38 @@ const FooterTop = styled.div`
   }
 `;
 
-const LogoContainer = styled.div`
+const CompanyInfo = styled.div`
   flex: 1;
   min-width: 250px;
 `;
 
-const Logo = styled.img`
-  width: 300px;
-  height: auto;
-  margin-bottom: 1rem;
-  transition: transform 0.3s ease;
+const LogoContainer = styled.div`
+  margin-bottom: 1.5rem;
+`;
 
-  &:hover {
-    transform: scale(1.05);
-  }
+const Logo = styled.img`
+  max-width: 200px;
+  height: auto;
+  filter: brightness(0) invert(1);
 `;
 
 const Tagline = styled.p`
-  color: #666;
-  font-weight: 300;
+  color: #aaa;
   font-size: 1rem;
-  max-width: 250px;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+`;
+
+const CertificationBadge = styled.div`
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(211, 47, 47, 0.2);
+  color: #d32f2f;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.9rem;
 `;
 
 const FooterContent = styled.div`
@@ -126,41 +162,61 @@ const FooterContent = styled.div`
 const QuickLinks = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  min-width: 150px;
+  gap: 0.8rem;
+  min-width: 200px;
 `;
 
 const SectionTitle = styled.h3`
   font-size: 1.2rem;
   font-weight: 600;
-  color: #333;
-  margin-bottom: 1rem;
+  color: white;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: #d32f2f;
+  }
 `;
 
 const FooterLink = styled(Link)`
-  color: #666;
+  color: #aaa;
   font-weight: 300;
   text-decoration: none;
-  transition: color 0.3s ease, transform 0.3s ease;
-  padding: 0.25rem 0;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
 
   &:hover {
-    color: var(--primaryColor);
+    color: #d32f2f;
     transform: translateX(5px);
+  }
+
+  svg {
+    font-size: 0.9rem;
   }
 `;
 
 const ContactInfo = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  min-width: 200px;
+  gap: 1.2rem;
+  min-width: 250px;
 `;
 
 const ContactItem = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 1rem;
+  line-height: 1.5;
 
   @media (max-width: 768px) {
     justify-content: center;
@@ -168,55 +224,16 @@ const ContactItem = styled.div`
 `;
 
 const ContactIcon = styled.div`
-  background: var(--primaryColor);
-  color: white;
-  width: 40px;
-  height: 40px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  transition: transform 0.3s ease;
-
-  &:hover {
-    transform: scale(1.1);
-  }
+  color: #d32f2f;
+  font-size: 1.1rem;
+  margin-top: 0.2rem;
+  flex-shrink: 0;
 `;
 
 const ContactText = styled.p`
-  color: #666;
+  color: #aaa;
   font-weight: 300;
   margin: 0;
-`;
-
-const SocialLinks = styled.div`
-  display: flex;
-  gap: 1rem;
-  margin-top: 1rem;
-
-  @media (max-width: 768px) {
-    justify-content: center;
-  }
-`;
-
-const SocialLink = styled.a`
-  background: var(--primaryColor);
-  color: white;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  transition: all 0.3s ease;
-  text-decoration: none;
-
-  &:hover {
-    background: #333;
-    transform: translateY(-3px);
-  }
 `;
 
 const FooterBottom = styled.div`
@@ -230,9 +247,28 @@ const FooterBottom = styled.div`
 `;
 
 const Copyright = styled.p`
-  color: #666;
+  color: #777;
   font-weight: 300;
   font-size: 0.9rem;
+`;
+
+const LegalLinks = styled.div`
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+`;
+
+const LegalLink = styled(Link)`
+  color: #aaa;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #d32f2f;
+    text-decoration: underline;
+  }
 `;
 
 export default Footer;
