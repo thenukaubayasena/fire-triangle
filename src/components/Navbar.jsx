@@ -43,6 +43,9 @@ const Navbar = () => {
         <NavItem to="/" $isActive={activeTab === "home"}>
           Home
         </NavItem>
+        <NavItem to="/about-us" $isActive={activeTab === "contact"}>
+          About Us
+        </NavItem>
         <NavItem to="/services" $isActive={activeTab === "services"}>
           <MdFireExtinguisher /> Services
         </NavItem>
@@ -54,9 +57,6 @@ const Navbar = () => {
         </NavItem>
         <NavItem to="/training" $isActive={activeTab === "training"}>
           <MdSchool /> Training
-        </NavItem>
-        <NavItem to="/contact" $isActive={activeTab === "contact"}>
-          Contact
         </NavItem>
         
         <EmergencyContact href="tel:+94112345678">

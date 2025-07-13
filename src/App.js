@@ -3,10 +3,10 @@ import ScrollToTop from "./ScrollToTop";
 import Home from "./routes/Home";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import Destinations from "./routes/Destinations";
+import Services from "./routes/Services";
 import AboutUs from "./routes/AboutUs";
-import CurrentPackages from "./routes/CurrentPackages";
-import Form from "./routes/Form";
+import Products from "./routes/Products";
+import Projects from "./routes/Projects";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -18,10 +18,10 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/destinations" element={<Destinations />} />
+          <Route path="/services" element={<Services />} />
           <Route path="/about-us" element={<AboutUs />} />
-          <Route path="/current-packages" element={<CurrentPackages />} />
-          <Route path="/form" element={<Form />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/projects" element={<Projects />} />
         </Routes>
         <Footer />
       </div>

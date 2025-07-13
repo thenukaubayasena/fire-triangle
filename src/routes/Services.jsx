@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import AllDestinations from "../components/destinationsComponents/AllDestinations";
+import AllServices from "../components/servicesComponents/AllServices";
 
-const Destinations = () => {
+const Services = () => {
   return (
     <Container>
-      <Destinations />
+      <Services />
     </Container>
   );
 };
@@ -15,4 +15,4 @@ const Container = styled.div`
   /* overflow-x: hidden; */
 `;
 
-export default AllDestinations;
+export default AllServices;
