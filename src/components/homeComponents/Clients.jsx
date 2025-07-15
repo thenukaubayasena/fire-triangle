@@ -1,12 +1,12 @@
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import { motion, useAnimation, useInView } from "framer-motion";
-import brand_1 from "../../assets/logos/brand_1.png";
-import brand_2 from "../../assets/logos/brand_2.png";
-import brand_3 from "../../assets/logos/brand_3.png";
-import brand_4 from "../../assets/logos/brand_4.png";
-import brand_5 from "../../assets/logos/brand_5.png";
-import brand_6 from "../../assets/logos/brand_6.png";
+import brand_1 from "../../assets/logos/dinapala.jpg";
+import brand_2 from "../../assets/logos/earls.jpg";
+import brand_3 from "../../assets/logos/bisma.png";
+import brand_4 from "../../assets/logos/sporting.png";
+import brand_5 from "../../assets/logos/rockland.jpg";
+import brand_6 from "../../assets/logos/sliate.jpg";
 
 const Clients = () => {
   const ref = useRef(null);
@@ -21,32 +21,32 @@ const Clients = () => {
 
   const clients = [
     {
-      name: "ABC Corporation",
+      name: "Dinapala Group",
       logo: brand_1, // Replace with actual path
       testimonial: "Their fire safety systems have protected our facilities for over 5 years with zero incidents."
     },
     {
-      name: "XYZ Industries",
+      name: "Earl's Regent, Kandy",
       logo: brand_2, // Replace with actual path
       testimonial: "Professional service and reliable equipment that meets international standards."
     },
     {
-      name: "National Bank",
+      name: "Bisma Buscuits",
       logo: brand_3, // Replace with actual path
       testimonial: "Regular maintenance and prompt emergency response give us complete peace of mind."
     },
     {
-      name: "City Hospital",
+      name: "Sporting Times",
       logo: brand_4, // Replace with actual path
       testimonial: "Critical infrastructure requires the best protection - that's why we chose End Fire Safety."
     },
     {
-      name: "Premier Hotels",
+      name: "Rockland Distillers",
       logo: brand_5, // Replace with actual path
       testimonial: "Comprehensive fire safety solutions tailored specifically for the hospitality industry."
     },
     {
-      name: "Government Complex",
+      name: "SLIATE - HNDM - KANDY",
       logo: brand_6, // Replace with actual path
       testimonial: "Trusted provider for our high-security government facilities."
     }

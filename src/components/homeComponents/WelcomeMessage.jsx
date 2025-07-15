@@ -1,11 +1,13 @@
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import { motion, useAnimation, useInView } from "framer-motion";
+import { useNavigate } from 'react-router-dom';
 
 const WelcomeMessage = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   const animation = useAnimation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (isInView) {
@@ -36,6 +38,7 @@ const WelcomeMessage = () => {
           best-in-class service with regular maintenance.
         </Description>
         <AboutButton
+          onClick={() => navigate('/about-us')}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           transition={{ type: "spring", stiffness: 400, damping: 10 }}
