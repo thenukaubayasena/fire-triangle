@@ -75,9 +75,9 @@ const Footer = () => {
           &copy; {new Date().getFullYear()} Fire Triangle (Pvt) Ltd. All rights reserved.
         </Copyright>
         <LegalLinks>
-          <LegalLink to="/privacy-policy">Privacy Policy</LegalLink>
-          <LegalLink to="/terms">Terms of Service</LegalLink>
-          <LegalLink to="/sitemap">Sitemap</LegalLink>
+          <LegalLink>Privacy Policy</LegalLink>
+          <LegalLink>Terms of Service</LegalLink>
+          <LegalLink>Sitemap</LegalLink>
         </LegalLinks>
       </FooterBottom>
     </FooterContainer>
