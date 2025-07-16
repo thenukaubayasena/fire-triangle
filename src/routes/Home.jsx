@@ -23,7 +23,7 @@ const Home = () => {
 };
 const Container = styled.div`
   padding: 0;
-  /* overflow-x: hidden; */
+   overflow-x: hidden;
   .section {
     margin-bottom: 0rem; 
   }
