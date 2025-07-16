@@ -378,19 +378,9 @@ const HeroSection = styled.section`
   padding: 0 2rem;
   opacity: 0.9;
 
-  @media (max-width: 1024px) {
-    height: 60vh;
-    min-height: 400px;
-  }
-
   @media (max-width: 768px) {
-    height: 50vh;
-    min-height: 350px;
-  }
-
-  @media (max-width: 480px) {
-    height: 45vh;
-    min-height: 300px;
+    height: 70vh;
+    min-height: 400px;
   }
 `;
 
