@@ -423,15 +423,21 @@ const CertificationBadge = styled.div`
   gap: 0.5rem;
   background: rgba(255, 215, 0, 0.2);
   color: #ffd700;
-  padding: 0.6rem 1.2rem;
-  border-radius: 4px;
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 1rem;
   margin-top: 1rem;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 215, 0, 0.3);
 
-  @media (max-width: 480px) {
-    font-size: 0.8rem;
-    padding: 0.5rem 1rem;
+  svg {
+    font-size: 1.2rem;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
   }
 `;
 

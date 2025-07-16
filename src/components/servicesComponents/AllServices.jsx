@@ -10,9 +10,15 @@ import {
   FaShieldAlt,
   FaUserGraduate,
   FaChartLine,
-  FaPhoneAlt
+  FaPhoneAlt,
+  FaCheck,
+  FaTools,
+  FaWater,
+  FaFire,
+  FaCloud
 } from "react-icons/fa";
-import { MdEngineering, MdSecurity } from "react-icons/md";
+import { MdEngineering, MdSecurity, MdDesignServices } from "react-icons/md";
+import { GiSpray, GiChemicalDrop, GiGasMask } from "react-icons/gi";
 import servicesBg from "../../assets/services-bg.jpg";
 
 const AllServices = () => {
@@ -31,113 +37,185 @@ const AllServices = () => {
       id: 1,
       title: "Fire Detection Systems",
       icon: <FaBell />,
-      description: "Conventional & Addressable Intelligent Fire Alarm Panels with advanced detection technology",
+      description: "Complete range of conventional and addressable intelligent fire alarm systems approved by IFE(UK) and Sri Lankan Fire Department",
       features: [
+        "Conventional & Addressable Intelligent Fire Alarm Panels",
+        "Workstations with advanced monitoring capabilities",
         "Addressable Ionization Smoke Detectors",
-        "Optical Smoke & Beam Detectors",
-        "Heat & Multi-Sensor Detectors",
-        "Flame & LPG Gas Detectors",
-        "Manual Call Points & Alarm Bells"
+        "Optical Smoke Detectors & Beam Detectors",
+        "Heat Detectors & Multi-Sensor Detectors",
+        "Flame Detectors & Video Detection",
+        "LPG & H2S Gas Detectors",
+        "Manual Call Points & Alarm Bells/Sounders",
+        "Water Leak Detection Systems"
       ],
-      standards: "IFE(UK) & Sri Lankan Fire Department Approved"
+      standards: "IFE(UK) & Sri Lankan Fire Department Approved",
+      brands: ["Gentex Corporation", "Bristol", "Klaxon", "AIM/Sense Series"]
     },
     {
       id: 2,
       title: "Fire Suppression Systems",
       icon: <FaShower />,
-      description: "Advanced systems for diverse environments from server rooms to industrial facilities",
+      description: "Specialist fire suppression solutions for diverse environments from server rooms to industrial kitchens",
       features: [
         "Gaseous Systems (FM200, NAF 227ea, NAF S125)",
-        "Inergen, Novec, Argonite Systems",
-        "Foam & Water Based Systems",
+        "Inergen, Novec, Argonite, Argon Systems",
+        "Foam Based Fire Suppression Systems",
+        "Water Based Systems (Mist, Hydrants, Sprinklers)",
         "Wet Chemical Kitchen Hood Systems",
-        "Dry Mist & Tube Technology Systems"
+        "Dry Mist Suppression Systems (Patented Technology)",
+        "Tube Technology Suppression Systems",
+        "Deluge Systems for high-risk areas",
+        "Pre-engineered & engineered solutions"
       ],
-      standards: "NFPA & BS EN Standards Compliant"
+      standards: "NFPA, BS EN & FM Global Standards",
+      brands: ["NAF", "FirePro", "Kidde", "Ansul"]
     },
     {
       id: 3,
       title: "Sprinkler Systems",
-      icon: <FaWind />,
-      description: "Comprehensive sprinkler solutions for all building types",
+      icon: <FaWater />,
+      description: "Comprehensive sprinkler system design and installation conforming to BS EN 12845 and NFPA regulations",
       features: [
-        "BS EN 12845 & NFPA compliant designs",
-        "Wet, Dry & Pre-action Systems",
-        "Water Mist & Deluge Systems",
+        "Wet, Dry & Pre-action Sprinkler Systems",
+        "Water Mist & Medium Velocity Spray Systems",
         "Hydraulic calculations using FHC software",
-        "Hazard evaluation & water supply analysis"
+        "Compliance with 16 international standards",
+        "Hazard evaluation & classification",
+        "Water supply adequacy assessment",
+        "Foam/Water Monitor Systems",
+        "Regular testing & commissioning"
       ],
-      standards: "16 International Design Standards"
+      standards: "BS EN 12845, NFPA, FM Global Certified",
+      brands: ["Tyco", "Viking", "Reliable", "Grundfos"]
     },
     {
       id: 4,
       title: "Fire Extinguishers",
       icon: <FaFireExtinguisher />,
-      description: "Complete range of certified fire extinguishers for all fire classes",
+      description: "Complete range of certified fire extinguishers for all fire classes with regular maintenance services",
       features: [
-        "ABC Dry Chemical Powder",
-        "CO₂ & Clean Agent Extinguishers",
-        "Water, Foam & Wet Chemical types",
-        "Mechanical Foam & AFFF Foam",
-        "Regular maintenance & refill services"
+        "Ozone Friendly Clean Agent Extinguishers",
+        "ISI & KITE Marked ABC Dry Chemical Powder",
+        "Carbon Dioxide (CO₂) Extinguishers",
+        "Water Type & Wet Chemical Extinguishers",
+        "Mechanical Foam & AFFF Foam Systems",
+        "Water Mist Technology Extinguishers",
+        "Regular inspection & maintenance programs",
+        "Correct placement & installation services",
+        "Staff training on proper usage"
       ],
-      standards: "ISI & KITE Marked"
+      standards: "ISI, KITE & Sri Lankan Fire Department Approved",
+      brands: ["Amerex", "Buckeye", "Badger", "Fire Fighter"]
     },
     {
       id: 5,
       title: "Aerosol Suppression",
-      icon: <FaGasPump />,
-      description: "Innovative non-pressurized suppression technology",
+      icon: <GiChemicalDrop />,
+      description: "Innovative non-pressurized suppression technology requiring minimal maintenance",
       features: [
-        "No external electrical/pressure needed",
+        "Autonomous operation (no external power needed)",
+        "Flexible & modular installation",
+        "Non-pressurized containers for safety",
+        "Space and weight saving solutions",
+        "Electrical, thermal or manual activation",
         "Suitable for A, B, C, F class fires",
-        "Natural mineral coolant",
-        "Minimal maintenance requirements",
-        "Fail-safe activation system"
+        "Natural mineral coolant (non-pyrotechnic)",
+        "Built-in fail-safe activation system",
+        "Long operation lifetime with stability"
       ],
-      standards: "International Fire Safety Standards"
+      standards: "International Fire Safety Standards",
+      brands: ["FirePro", "Stat-X", "Aerosol"]
     },
     {
       id: 6,
-      title: "Security Systems",
-      icon: <MdSecurity />,
-      description: "Integrated fire and security solutions",
+      title: "Smoke Ventilation",
+      icon: <FaWind />,
+      description: "Comprehensive smoke control systems for building safety compliance",
       features: [
-        "CCTV with Perimeter Protection",
-        "Intrusion Detection Systems",
-        "Long Range Sirens",
-        "Metal Detectors",
-        "Integrated Alarm Systems"
+        "Window Activators with Reliable Control Systems",
+        "Automatic Opening Vents (AOVs)",
+        "Mechanical Smoke Ventilation with Powered Fans",
+        "Powered Extract Systems",
+        "Natural Ventilation Solutions",
+        "Integrated with Fire Alarm Systems",
+        "BS 7346-4 Compliant Designs",
+        "Regular Maintenance Contracts"
       ],
-      standards: "BSIA & SLS Standards"
+      standards: "BS 7346-4 & EN 12101 Standards",
+      brands: ["Colt", "Swegon", "Gilberts", "Ventcroft"]
     },
     {
       id: 7,
+      title: "Security Systems",
+      icon: <MdSecurity />,
+      description: "Integrated security solutions to complement fire safety systems",
+      features: [
+        "CCTV with Perimeter Protection",
+        "Intrusion Detection & Alarm Systems",
+        "Long Range Siren Systems",
+        "Hand-held & Walk-through Metal Detectors",
+        "Access Control Systems",
+        "Integrated Alarm Monitoring",
+        "24/7 Monitoring Services",
+        "Security Risk Assessments"
+      ],
+      standards: "BSIA & SLS Standards Compliant",
+      brands: ["Hikvision", "Dahua", "Bosch", "Honeywell"]
+    },
+    {
+      id: 8,
       title: "Risk Management",
       icon: <FaChartLine />,
-      description: "Comprehensive fire safety assessments and planning",
+      description: "Comprehensive fire safety assessments and emergency planning services",
       features: [
         "Fire & Security Risk Assessments",
         "Building Performance Evaluation",
         "Business Continuity Planning",
         "Premises Security Assessments",
-        "Emergency Preparedness Plans"
+        "Fire Safety & Security Planning",
+        "Emergency Preparedness Plans",
+        "Compliance Audits",
+        "Regulatory Guidance"
       ],
-      standards: "International Best Practices"
+      standards: "International Best Practices",
+      brands: []
     },
     {
-      id: 8,
+      id: 9,
       title: "Training Programs",
       icon: <FaUserGraduate />,
-      description: "Certified fire safety education for organizations",
+      description: "Certified fire safety education for organizations of all sizes",
       features: [
         "First Aid Fire Safety Training",
-        "Extinguisher Handling Demonstrations",
+        "Fire Extinguisher Handling Demonstrations",
         "Health & Safety Law Compliance",
         "Risk Assessment Workshops",
-        "Emergency Evacuation Drills"
+        "Emergency Evacuation Drills",
+        "Fire Warden Training",
+        "CPR & First Aid Certification",
+        "Specialized Industrial Training"
       ],
-      standards: "IFE(UK) Certified Curriculum"
+      standards: "IFE(UK) Certified Curriculum",
+      brands: []
+    },
+    {
+      id: 10,
+      title: "Design & Engineering",
+      icon: <MdDesignServices />,
+      description: "Professional fire protection system design and engineering services",
+      features: [
+        "Hydraulic Calculations",
+        "System Design & Specification",
+        "3D Modeling & BIM Integration",
+        "Code Compliance Review",
+        "Value Engineering",
+        "Construction Documentation",
+        "Shop Drawing Preparation",
+        "Commissioning Support"
+      ],
+      standards: "NFPA, BS, FM Global Standards",
+      brands: ["AutoCAD", "Revit", "HydraCAD"]
     }
   ];
 
@@ -145,21 +223,29 @@ const AllServices = () => {
     <ServicesContainer>
       {/* Hero Section */}
       <HeroSection>
+        <HeroOverlay />
         <HeroContent>
           <motion.h1
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            Our Fire Safety Services
+            Comprehensive Fire Safety Solutions
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            Comprehensive protection solutions since 2005
+            Protecting Sri Lanka's businesses and homes since 2005
           </motion.p>
+          <CertificationBadge
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
+            <FaShieldAlt /> IFE(UK) Certified Professionals
+          </CertificationBadge>
         </HeroContent>
       </HeroSection>
 
@@ -174,9 +260,24 @@ const AllServices = () => {
           animate={animation}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          Fire Triangle provides complete fire safety solutions combining cutting-edge technology with IFE(UK) certified expertise. 
-          Our services are designed to meet international standards while addressing Sri Lanka's unique fire safety challenges.
+          Fire Triangle provides complete fire protection solutions combining cutting-edge technology with IFE(UK) certified expertise. 
+          Our services meet international standards while addressing Sri Lanka's unique fire safety challenges through:
         </IntroText>
+
+        <KeyFeatures>
+          <Feature>
+            <FaCheck /> 18+ Years of Industry Experience
+          </Feature>
+          <Feature>
+            <FaTools /> Certified Maintenance Programs
+          </Feature>
+          <Feature>
+            <FaUserGraduate /> IFE(UK) Trained Technicians
+          </Feature>
+          <Feature>
+            <FaShieldAlt /> 24/7 Emergency Support
+          </Feature>
+        </KeyFeatures>
 
         {/* Services Grid */}
         <ServicesGrid>
@@ -190,22 +291,38 @@ const AllServices = () => {
               initial="hidden"
               animate={animation}
               transition={{ duration: 0.5, delay: index * 0.1 }}
+              // whileHover={{ y: -5 }}
             >
-              <ServiceIcon>{service.icon}</ServiceIcon>
-              <ServiceTitle>{service.title}</ServiceTitle>
+              <ServiceHeader>
+                <ServiceIcon>{service.icon}</ServiceIcon>
+                <ServiceTitle>{service.title}</ServiceTitle>
+              </ServiceHeader>
+              
               <ServiceDescription>{service.description}</ServiceDescription>
               
+              <FeaturesTitle>Key Features:</FeaturesTitle>
               <FeaturesList>
                 {service.features.map((feature, i) => (
                   <FeatureItem key={i}>
-                    <FeatureIcon>✓</FeatureIcon>
-                    {feature}
+                    <FeatureIcon><FaCheck /></FeatureIcon>
+                    <FeatureText>{feature}</FeatureText>
                   </FeatureItem>
                 ))}
               </FeaturesList>
               
+              {service.brands.length > 0 && (
+                <>
+                  <BrandsTitle>Featured Brands:</BrandsTitle>
+                  <BrandsList>
+                    {service.brands.map((brand, i) => (
+                      <BrandItem key={i}>{brand}</BrandItem>
+                    ))}
+                  </BrandsList>
+                </>
+              )}
+              
               <StandardsBadge>
-                <FaShieldAlt /> {service.standards}
+                <FaShieldAlt /> <span>{service.standards}</span>
               </StandardsBadge>
             </ServiceCard>
           ))}
@@ -221,15 +338,17 @@ const AllServices = () => {
           animate={animation}
           transition={{ duration: 0.6, delay: 0.8 }}
         >
-          <h3>Need Immediate Fire Safety Assistance?</h3>
-          <p>Our emergency response team is available 24/7</p>
-          <EmergencyButton
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            transition={{ type: "spring", stiffness: 400, damping: 10 }}
-          >
-            <FaPhoneAlt /> Call +94 11 234 5678
-          </EmergencyButton>
+          <EmergencyContent>
+            <h3>24/7 Emergency Fire Safety Support</h3>
+            <p>Our certified response team is always ready to assist</p>
+            <EmergencyButton
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            >
+              <FaPhoneAlt /> Call +94 76 756 5634
+            </EmergencyButton>
+          </EmergencyContent>
         </EmergencyCTA>
       </MainContent>
     </ServicesContainer>
@@ -238,101 +357,123 @@ const AllServices = () => {
 
 // Styled Components
 const ServicesContainer = styled.div`
-  font-family: 'Arial', sans-serif;
+  font-family: 'Poppins', sans-serif;
   color: #333;
   width: 100%;
+  overflow-x: hidden;
 `;
 
 const HeroSection = styled.section`
   position: relative;
-  height: 450px;
+  height: 65vh;
+  min-height: 500px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: #fff;
-  background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
               url(${servicesBg});
   background-size: cover;
   background-position: center;
-  padding: 0 3rem;
+  padding: 0 2rem;
   opacity: 0.9;
 
-  h1 {
-    font-size: 3.2rem;
-    margin-bottom: 1rem;
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
-  }
-
-  p {
-    font-size: 1.3rem;
-    opacity: 0.9;
-  }
-
-  @media (min-width: 1200px) {
-    height: 500px;
-    h1 {
-      font-size: 3.8rem;
-    }
-    p {
-      font-size: 1.4rem;
-    }
-  }
-
   @media (max-width: 1024px) {
-    height: 400px;
-    h1 {
-      font-size: 2.8rem;
-    }
-    p {
-      font-size: 1.2rem;
-    }
+    height: 60vh;
+    min-height: 400px;
   }
 
   @media (max-width: 768px) {
-    height: 350px;
-    padding: 0 2rem;
-    h1 {
-      font-size: 2.3rem;
-    }
-    p {
-      font-size: 1rem;
-    }
+    height: 50vh;
+    min-height: 350px;
   }
 
   @media (max-width: 480px) {
-    height: 300px;
-    padding: 0 1.5rem;
-    h1 {
-      font-size: 1.8rem;
-    }
-    p {
-      font-size: 0.9rem;
-    }
+    height: 45vh;
+    min-height: 300px;
   }
+`;
+
+const HeroOverlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(211, 47, 47, 0.2);
+  z-index: 1;
 `;
 
 const HeroContent = styled.div`
   position: relative;
   z-index: 2;
-  max-width: 900px;
-`;
+  max-width: 1000px;
+  color: white;
 
-const MainContent = styled(motion.div)`
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 3rem 2rem;
-
-  @media (max-width: 1024px) {
-    padding: 2.5rem 1.5rem;
+  h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
   }
 
-  @media (max-width: 768px) {
-    padding: 2rem 1rem;
+  p {
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    opacity: 0.9;
+    margin-bottom: 1.5rem;
+    font-weight: 300;
   }
 
   @media (max-width: 480px) {
-    padding: 1.5rem 0.8rem;
+    h1 {
+      font-size: 2rem;
+    }
+    p {
+      font-size: 1.1rem;
+    }
+  }
+`;
+
+const CertificationBadge = styled(motion.div)`
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 215, 0, 0.2);
+  color: #ffd700;
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-top: 1rem;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+
+  svg {
+    font-size: 1.2rem;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+  }
+`;
+
+const MainContent = styled(motion.div)`
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+
+  @media (max-width: 1024px) {
+    padding: 3rem 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    padding: 2.5rem 1rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 2rem 0.8rem;
   }
 `;
 
@@ -341,138 +482,183 @@ const IntroText = styled(motion.p)`
   font-size: 1.2rem;
   line-height: 1.8;
   max-width: 900px;
-  margin: 0 auto 3rem;
+  margin: 0 auto 2rem;
   color: #555;
-
-  @media (min-width: 1200px) {
-    font-size: 1.3rem;
-  }
 
   @media (max-width: 768px) {
     font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+`;
+
+const KeyFeatures = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media (max-width: 768px) {
+    gap: 1rem;
     margin-bottom: 2rem;
-    max-width: 95%;
+  }
+`;
+
+const Feature = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #f5f5f5;
+  padding: 0.8rem 1.2rem;
+  border-radius: 50px;
+  font-weight: 500;
+  color: #d32f2f;
+  font-size: 0.95rem;
+
+  svg {
+    font-size: 0.9rem;
   }
 
-  @media (max-width: 480px) {
-    font-size: 0.9rem;
-    margin-bottom: 1.5rem;
+  @media (max-width: 768px) {
+    font-size: 0.85rem;
+    padding: 0.6rem 1rem;
   }
 `;
 
 const ServicesGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 1.8rem;
-  margin-bottom: 3rem;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
 
-  @media (min-width: 1200px) {
-    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-    gap: 2rem;
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
   }
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-
-  @media (max-width: 480px) {
-    gap: 1.2rem;
-  }
 `;
 
 const ServiceCard = styled(motion.div)`
   background: #fff;
-  border-radius: 10px;
-  padding: 1.8rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
-  border-top: 4px solid #d32f2f;
+  border-top: 5px solid #d32f2f;
   display: flex;
   flex-direction: column;
   height: 100%;
-  position: relative;
-  overflow: hidden;
 
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-  }
-
-  @media (max-width: 480px) {
+  @media (max-width: 768px) {
     padding: 1.5rem;
   }
 `;
 
+const ServiceHeader = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+`;
+
 const ServiceIcon = styled.div`
   color: #d32f2f;
-  font-size: 2.8rem;
-  margin-bottom: 1.2rem;
+  font-size: 2.5rem;
+  flex-shrink: 0;
 
   @media (max-width: 768px) {
-    font-size: 2.5rem;
-  }
-
-  @media (max-width: 480px) {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
 `;
 
 const ServiceTitle = styled.h2`
-  font-size: 1.6rem;
-  margin-bottom: 1rem;
+  font-size: 1.5rem;
   color: #222;
+  font-weight: 600;
+  margin: 0;
 
   @media (max-width: 768px) {
-    font-size: 1.4rem;
-  }
-
-  @media (max-width: 480px) {
     font-size: 1.3rem;
   }
 `;
 
 const ServiceDescription = styled.p`
   color: #555;
-  line-height: 1.6;
-  margin-bottom: 1.2rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
   font-size: 1rem;
 
-  @media (max-width: 480px) {
-    font-size: 0.9rem;
+  @media (max-width: 768px) {
+    font-size: 0.95rem;
+  }
+`;
+
+const FeaturesTitle = styled.h3`
+  font-size: 1.1rem;
+  color: #d32f2f;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
   }
 `;
 
 const FeaturesList = styled.ul`
   list-style: none;
   padding: 0;
-  margin: 0 0 1.2rem 0;
-  flex-grow: 1;
-
-  @media (max-width: 480px) {
-    margin-bottom: 1rem;
-  }
+  margin: 0 0 1.5rem 0;
 `;
 
 const FeatureItem = styled.li`
-  margin-bottom: 0.7rem;
+  margin-bottom: 0.8rem;
   display: flex;
   align-items: flex-start;
-  line-height: 1.5;
+  gap: 0.5rem;
+  line-height: 1.6;
+`;
+
+const FeatureIcon = styled.div`
+  color: #d32f2f;
+  font-size: 0.8rem;
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+`;
+
+const FeatureText = styled.span`
   color: #444;
   font-size: 0.95rem;
 
-  @media (max-width: 480px) {
+  @media (max-width: 768px) {
     font-size: 0.9rem;
-    margin-bottom: 0.6rem;
   }
 `;
 
-const FeatureIcon = styled.span`
-  color: #d32f2f;
-  font-weight: bold;
-  margin-right: 0.5rem;
-  font-size: 1rem;
+const BrandsTitle = styled(FeaturesTitle)`
+  margin-top: 1rem;
+`;
+
+const BrandsList = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+`;
+
+const BrandItem = styled.div`
+  background: #f5f5f5;
+  color: #555;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
 `;
 
 const StandardsBadge = styled.div`
@@ -481,60 +667,71 @@ const StandardsBadge = styled.div`
   gap: 0.5rem;
   font-size: 0.9rem;
   color: #555;
-  background: #f5f5f5;
-  padding: 0.7rem;
-  border-radius: 4px;
+  background: #f9f9f9;
+  padding: 0.8rem;
+  border-radius: 8px;
   margin-top: auto;
+  border: 1px solid #eee;
 
   svg {
     color: #d32f2f;
     font-size: 1rem;
   }
 
-  @media (max-width: 480px) {
+  span {
+    font-weight: 500;
+  }
+
+  @media (max-width: 768px) {
     font-size: 0.85rem;
-    padding: 0.6rem;
+    padding: 0.7rem;
   }
 `;
 
 const EmergencyCTA = styled(motion.div)`
-  background: #d32f2f;
+  background: linear-gradient(135deg, #d32f2f, #b71c1c);
   color: #fff;
-  padding: 2rem;
-  border-radius: 10px;
+  padding: 3rem 2rem;
+  border-radius: 12px;
   text-align: center;
-  max-width: 900px;
+  max-width: 1000px;
+  margin: 0 auto;
+  box-shadow: 0 10px 30px rgba(211, 47, 47, 0.3);
+
+  @media (max-width: 768px) {
+    padding: 2rem 1.5rem;
+  }
+`;
+
+const EmergencyContent = styled.div`
+  max-width: 700px;
   margin: 0 auto;
 
   h3 {
-    font-size: 1.7rem;
+    font-size: 1.8rem;
     margin-bottom: 0.5rem;
+    font-weight: 600;
+
+    @media (max-width: 768px) {
+      font-size: 1.5rem;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 1.3rem;
+    }
   }
 
   p {
     opacity: 0.9;
     margin-bottom: 1.5rem;
     font-size: 1.1rem;
-  }
 
-  @media (max-width: 768px) {
-    padding: 1.5rem;
-    h3 {
-      font-size: 1.5rem;
-    }
-    p {
+    @media (max-width: 768px) {
       font-size: 1rem;
     }
-  }
 
-  @media (max-width: 480px) {
-    padding: 1.2rem;
-    h3 {
-      font-size: 1.3rem;
-    }
-    p {
+    @media (max-width: 480px) {
       font-size: 0.9rem;
-      margin-bottom: 1rem;
     }
   }
 `;
@@ -543,20 +740,20 @@ const EmergencyButton = styled(motion.button)`
   background: #fff;
   color: #d32f2f;
   border: none;
-  padding: 0.9rem 2rem;
+  padding: 1rem 2.5rem;
   font-size: 1.1rem;
   font-weight: 600;
-  border-radius: 6px;
+  border-radius: 50px;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   }
 
   svg {
@@ -564,16 +761,13 @@ const EmergencyButton = styled(motion.button)`
   }
 
   @media (max-width: 768px) {
-    padding: 0.8rem 1.8rem;
+    padding: 0.9rem 2rem;
     font-size: 1rem;
   }
 
   @media (max-width: 480px) {
-    padding: 0.7rem 1.5rem;
+    padding: 0.8rem 1.5rem;
     font-size: 0.9rem;
-    svg {
-      font-size: 1rem;
-    }
   }
 `;
 
