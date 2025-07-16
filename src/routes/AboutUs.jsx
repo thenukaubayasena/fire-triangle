@@ -1,4 +1,3 @@
-
 import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
@@ -11,15 +10,22 @@ import {
   FaAward,
   FaHandshake,
   FaLightbulb,
-  FaUserShield
+  FaUserShield,
+  FaPhoneAlt,
+  FaFirstAid,
+  FaCar,
+  FaGraduationCap
 } from "react-icons/fa";
 import { 
   MdEngineering, 
   MdSafetyDivider,
   MdGppGood,
-  MdWorkspacePremium
+  MdWorkspacePremium,
+  MdBusiness,
+  MdSecurity
 } from "react-icons/md";
-import { GiFireflake } from "react-icons/gi";
+import { GiFireflake, GiSiren } from "react-icons/gi";
+import { RiFireFill } from "react-icons/ri";
 import aboutBg from "../assets/about/about-bg.jpg";
 
 // Core values data with icons
@@ -37,7 +43,7 @@ const coreValues = [
   {
     icon: <MdWorkspacePremium />,
     title: "Integrity",
-    description: "Values must be demonstrated in the way you act and the way you insist others behave. EF has integrity, no team member or customer can compromise it."
+    description: "Values must be demonstrated in the way you act and the way you insist others behave. Fire Triangle has integrity, no team member or customer can compromise it."
   },
   {
     icon: <FaHandshake />,
@@ -47,7 +53,7 @@ const coreValues = [
   {
     icon: <FaLightbulb />,
     title: "Knowledge",
-    description: "Commitment to enhancing job knowledge. EF team members are the professionals in this field, we are not afraid of doing the homework to complete a job correctly."
+    description: "Commitment to enhancing job knowledge. Fire Triangle team members are the professionals in this field, we are not afraid of doing the homework to complete a job correctly."
   },
   {
     icon: <MdEngineering />,
@@ -58,6 +64,54 @@ const coreValues = [
     icon: <GiFireflake />,
     title: "Innovation",
     description: "Learn to adapt to change within a company, work with it, not against it, if a company is to grow, there must come changes. Look for new opportunities...don't become stagnant."
+  }
+];
+
+// Training programs data
+const trainingPrograms = [
+  {
+    icon: <FaFirstAid />,
+    title: "First Aid & CPR Training",
+    description: "Essential training for staff and technical personnel"
+  },
+  {
+    icon: <FaFireExtinguisher />,
+    title: "Fire Protection Technician Training",
+    description: "Comprehensive program for technical staff"
+  },
+  {
+    icon: <FaGraduationCap />,
+    title: "Industry Seminars",
+    description: "External seminars to stay updated with industry standards"
+  },
+  {
+    icon: <FaCar />,
+    title: "Fleet Safety Program",
+    description: "Specialized training for our mobile workforce"
+  }
+];
+
+// Risk management services
+const riskServices = [
+  {
+    icon: <MdSecurity />,
+    title: "Fire & Security Risk Assessment",
+    description: "Meeting international good practice standards"
+  },
+  {
+    icon: <MdBusiness />,
+    title: "Building Performance Assessment",
+    description: "Identifying adequacy against fire spread"
+  },
+  {
+    icon: <GiSiren />,
+    title: "Business Protection & Continuity",
+    description: "Assessing fire incident impact on operations"
+  },
+  {
+    icon: <RiFireFill />,
+    title: "Fire Safety Planning",
+    description: "Preparing and reviewing fire safety provisions"
   }
 ];
 
@@ -80,16 +134,17 @@ const AboutUs = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            Leading Fire Safety Solutions in Sri Lanka Since 2005
+            Sri Lanka's Leading Fire Safety Specialists Since 2005
           </motion.p>
-          <ScrollIndicator
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            Scroll to explore
-            <span></span>
-          </ScrollIndicator>
+            <CertificationBadge>
+              <FaAward /> IFE(UK) Certified Professionals
+            </CertificationBadge>
+          </motion.div>
         </HeroContent>
       </HeroSection>
 
@@ -150,7 +205,7 @@ const AboutUs = () => {
         <ValuesSection>
           <SectionHeader>
             <h2>Our Core Values</h2>
-            <p>Fire Triangle team members were asked to provide management with their input to establish our core values. Fire Triangle team members have developed core values using one word with a description of what each word means to them. Fire Triangle has made these the cornerstone of our philosophy.</p>
+            <p>Fire Triangle team members were asked to provide management with their input to establish our core values. These values form the cornerstone of our philosophy and guide everything we do.</p>
           </SectionHeader>
           <ValuesGrid>
             {coreValues.map((value, index) => (
@@ -170,17 +225,14 @@ const AboutUs = () => {
         </ValuesSection>
 
         <TeamSection>
-          <SectionCard
+          <SectionHeader>
+            <h2>Our Expert Team</h2>
+            <p>Our technicians and staff are among the finest and most qualified IFE(UK) professionals in the industry.</p>
+          </SectionHeader>
+          
+          <TeamCard
             whileHover={{ y: -5 }}
           >
-            <IconWrapper>
-              <FaUsers />
-            </IconWrapper>
-            <SectionHeader>
-              <h2>Our Staff</h2>
-              <p>Our technicians and staff are among the finest and most qualified IFE(UK) in the industry. We perform frequent drug tests to maintain a 100% drug-free workplace and run background checks before we entrust them with your fire protection needs.</p>
-            </SectionHeader>
-            
             <TeamGrid>
               <TeamItem
                 whileHover={{ scale: 1.05 }}
@@ -222,15 +274,78 @@ const AboutUs = () => {
                 </li>
               </ul>
             </TeamBackground>
-          </SectionCard>
+          </TeamCard>
         </TeamSection>
+
+        <TrainingSection>
+          <SectionHeader>
+            <h2>Staff Training & Development</h2>
+            <p>We maintain a comprehensive safety program for all employees to ensure the highest standards of service.</p>
+          </SectionHeader>
+          
+          <TrainingGrid>
+            {trainingPrograms.map((program, index) => (
+              <TrainingCard
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ scale: 1.03 }}
+              >
+                <TrainingIcon>{program.icon}</TrainingIcon>
+                <h3>{program.title}</h3>
+                <p>{program.description}</p>
+              </TrainingCard>
+            ))}
+          </TrainingGrid>
+        </TrainingSection>
+
+        <RiskManagementSection>
+          <SectionHeader>
+            <h2>Risk Management Services</h2>
+            <p>Through our risk management and training subsidiary, we provide comprehensive safety assessments and planning.</p>
+          </SectionHeader>
+          
+          <ServicesGrid>
+            {riskServices.map((service, index) => (
+              <ServiceCard
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ scale: 1.03 }}
+              >
+                <ServiceIcon>{service.icon}</ServiceIcon>
+                <h3>{service.title}</h3>
+                <p>{service.description}</p>
+              </ServiceCard>
+            ))}
+          </ServicesGrid>
+        </RiskManagementSection>
+
+        <ClientsSection>
+          <SectionHeader>
+            <h2>Our Esteemed Clients</h2>
+            <p>We're proud to have served some of Sri Lanka's most prestigious organizations</p>
+          </SectionHeader>
+          
+          <ClientLogos>
+            <ClientLogo>Rockland (Pvt) Ltd</ClientLogo>
+            <ClientLogo>Brandix (Pvt) Ltd</ClientLogo>
+            <ClientLogo>Litro Gas</ClientLogo>
+            <ClientLogo>President House</ClientLogo>
+            <ClientLogo>Earl's Regency Hotel</ClientLogo>
+            <ClientLogo>District General Hospital, Monaragala</ClientLogo>
+            <ClientLogo>National Water Supply Board, Badulla</ClientLogo>
+            <ClientLogo>Udarata Development Authority</ClientLogo>
+            <ClientLogo>Hela Clothing (Pvt) Ltd</ClientLogo>
+            <ClientLogo>Pradeshiya Sabawa, Bulathkohupitiya</ClientLogo>
+          </ClientLogos>
+        </ClientsSection>
       </ContentSection>
     </AboutContainer>
   );
 };
-
-// ... (Keep all the styled components exactly as they were in the previous code) ...
-
 
 // Styled Components
 const AboutContainer = styled.div`
@@ -242,8 +357,8 @@ const AboutContainer = styled.div`
 
 const HeroSection = styled.section`
   position: relative;
-  height: 80vh;
-  min-height: 600px;
+  height: 65vh;
+  min-height: 500px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -252,8 +367,13 @@ const HeroSection = styled.section`
               url(${aboutBg});
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
   padding: 0 2rem;
+  opacity: 0.9;
+
+  @media (max-width: 768px) {
+    height: 70vh;
+    min-height: 400px;
+  }
 `;
 
 const HeroOverlay = styled.div`
@@ -273,7 +393,7 @@ const HeroContent = styled.div`
   color: white;
 
   h1 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-size: clamp(2rem, 5vw, 3.5rem);
     margin-bottom: 1.5rem;
     font-weight: 700;
     line-height: 1.2;
@@ -281,34 +401,37 @@ const HeroContent = styled.div`
   }
 
   p {
-    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    font-size: clamp(1rem, 2vw, 1.3rem);
     opacity: 0.9;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     font-weight: 300;
+  }
+
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 2rem;
+    }
+    p {
+      font-size: 1.1rem;
+    }
   }
 `;
 
-const ScrollIndicator = styled(motion.div)`
-  display: flex;
-  flex-direction: column;
+const CertificationBadge = styled.div`
+  display: inline-flex;
   align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 215, 0, 0.2);
+  color: #ffd700;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  font-weight: 600;
   font-size: 0.9rem;
-  margin-top: 3rem;
-  opacity: 0.8;
+  margin-top: 1rem;
 
-  span {
-    display: block;
-    width: 2px;
-    height: 50px;
-    background: white;
-    margin-top: 0.5rem;
-    animation: scrollPulse 2s infinite;
-
-    @keyframes scrollPulse {
-      0% { opacity: 1; height: 50px; }
-      50% { opacity: 0.5; height: 30px; }
-      100% { opacity: 1; height: 50px; }
-    }
+  @media (max-width: 480px) {
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
   }
 `;
 
@@ -320,6 +443,10 @@ const ContentSection = styled.div`
   @media (max-width: 768px) {
     padding: 3rem 1.5rem;
   }
+
+  @media (max-width: 480px) {
+    padding: 2rem 1rem;
+  }
 `;
 
 const SectionHeader = styled.div`
@@ -327,7 +454,7 @@ const SectionHeader = styled.div`
   margin-bottom: 3rem;
 
   h2 {
-    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
     color: #d32f2f;
     margin-bottom: 0.5rem;
     font-weight: 600;
@@ -338,6 +465,10 @@ const SectionHeader = styled.div`
     font-size: 1.1rem;
     max-width: 700px;
     margin: 0 auto;
+
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
   }
 `;
 
@@ -349,12 +480,13 @@ const HorizontalSection = styled.div`
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 `;
 
 const SectionCard = styled(motion.div)`
   background: white;
-  padding: 2.5rem;
+  padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
@@ -368,73 +500,33 @@ const SectionCard = styled(motion.div)`
   }
 
   h3 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 
   p {
     color: #555;
     line-height: 1.8;
     margin-bottom: 1rem;
-    font-size: 1.05rem;
-  }
-
-  strong {
-    color: #d32f2f;
-    font-weight: 600;
+    font-size: 1rem;
   }
 
   @media (max-width: 768px) {
-    padding: 2rem;
+    padding: 1.5rem;
   }
 `;
 
 const IconWrapper = styled.div`
   color: #d32f2f;
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
-`;
+  font-size: 2rem;
+  margin-bottom: 1rem;
 
-const Timeline = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-`;
-
-const TimelineItem = styled.div`
-  position: relative;
-  padding-left: 2rem;
-
-  &::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0.3rem;
-    width: 12px;
-    height: 12px;
-    background: #d32f2f;
-    border-radius: 50%;
+  @media (max-width: 768px) {
+    font-size: 1.8rem;
   }
-
-  &:not(:last-child)::after {
-    content: '';
-    position: absolute;
-    left: 5px;
-    top: 1.5rem;
-    width: 2px;
-    height: calc(100% + 1rem);
-    background: #d32f2f;
-  }
-`;
-
-const Year = styled.span`
-  display: block;
-  font-weight: bold;
-  color: #d32f2f;
-  margin-bottom: 0.3rem;
 `;
 
 const ValuesSection = styled.section`
-  margin: 6rem 0;
+  margin: 5rem 0;
 
   @media (max-width: 768px) {
     margin: 4rem 0;
@@ -443,20 +535,19 @@ const ValuesSection = styled.section`
 
 const ValuesGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
   }
 `;
 
 const ValueCard = styled(motion.div)`
   background: white;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
   text-align: center;
   transition: all 0.3s ease;
   border-bottom: 3px solid #d32f2f;
@@ -464,36 +555,52 @@ const ValueCard = styled(motion.div)`
   h3 {
     color: #222;
     margin: 1rem 0;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 600;
   }
 
   p {
     color: #666;
     line-height: 1.7;
-    font-size: 1rem;
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 768px) {
+    padding: 1.5rem 1rem;
   }
 `;
 
 const ValueIcon = styled.div`
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: #d32f2f;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 `;
 
 const TeamSection = styled.section`
-  margin: 6rem 0;
+  margin: 5rem 0;
 
   @media (max-width: 768px) {
     margin: 4rem 0;
   }
 `;
 
+const TeamCard = styled(motion.div)`
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+  }
+`;
+
 const TeamGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin: 3rem 0;
+  gap: 1.5rem;
+  margin: 2rem 0;
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
@@ -502,14 +609,15 @@ const TeamGrid = styled.div`
 
 const TeamItem = styled(motion.div)`
   background: white;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
   text-align: center;
   transition: all 0.3s ease;
+  border: 1px solid #eee;
 
   svg {
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: #d32f2f;
     margin-bottom: 1rem;
   }
@@ -518,7 +626,7 @@ const TeamItem = styled(motion.div)`
     display: block;
     font-weight: 600;
     color: #222;
-    font-size: 1.1rem;
+    font-size: 1rem;
     margin-bottom: 0.5rem;
   }
 
@@ -531,13 +639,13 @@ const TeamItem = styled(motion.div)`
 
 const TeamBackground = styled.div`
   background: #f9f9f9;
-  padding: 2rem;
-  border-radius: 10px;
+  padding: 1.5rem;
+  border-radius: 8px;
   margin-top: 2rem;
 
   h4 {
     color: #d32f2f;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     margin-bottom: 1rem;
     text-align: center;
     font-weight: 600;
@@ -553,16 +661,167 @@ const TeamBackground = styled.div`
   li {
     display: flex;
     align-items: flex-start;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
     color: #555;
     line-height: 1.7;
 
     svg {
       color: #d32f2f;
-      margin-right: 1rem;
-      font-size: 1.2rem;
+      margin-right: 0.8rem;
+      font-size: 1.1rem;
       margin-top: 0.2rem;
     }
+
+    span {
+      font-size: 0.95rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 1.2rem;
+  }
+`;
+
+const TrainingSection = styled.section`
+  margin: 5rem 0;
+
+  @media (max-width: 768px) {
+    margin: 4rem 0;
+  }
+`;
+
+const TrainingGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const TrainingCard = styled(motion.div)`
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: all 0.3s ease;
+  border-left: 3px solid #d32f2f;
+
+  h3 {
+    color: #222;
+    margin: 1rem 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  p {
+    color: #666;
+    line-height: 1.6;
+    font-size: 0.9rem;
+  }
+`;
+
+const TrainingIcon = styled.div`
+  font-size: 2rem;
+  color: #d32f2f;
+  margin-bottom: 0.5rem;
+`;
+
+const RiskManagementSection = styled.section`
+  margin: 5rem 0;
+  background: #f9f9f9;
+  padding: 3rem 2rem;
+  border-radius: 12px;
+
+  @media (max-width: 768px) {
+    margin: 4rem 0;
+    padding: 2rem 1rem;
+  }
+`;
+
+const ServicesGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const ServiceCard = styled(motion.div)`
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: all 0.3s ease;
+  border-right: 3px solid #d32f2f;
+
+  h3 {
+    color: #222;
+    margin: 1rem 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  p {
+    color: #666;
+    line-height: 1.6;
+    font-size: 0.9rem;
+  }
+`;
+
+const ServiceIcon = styled.div`
+  font-size: 2rem;
+  color: #d32f2f;
+  margin-bottom: 0.5rem;
+`;
+
+const ClientsSection = styled.section`
+  margin: 5rem 0;
+
+  @media (max-width: 768px) {
+    margin: 4rem 0;
+  }
+`;
+
+const ClientLogos = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+`;
+
+const ClientLogo = styled.div`
+  background: white;
+  padding: 1.5rem 1rem;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  font-weight: 600;
+  color: #333;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80px;
+  border: 1px solid #eee;
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+    font-size: 0.8rem;
+    min-height: 70px;
   }
 `;
 

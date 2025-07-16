@@ -256,6 +256,7 @@ const HeroSection = styled.section`
   background-size: cover;
   background-position: center;
   padding: 0 3rem;
+  opacity: 0.9;
 
   h1 {
     font-size: 3.2rem;
