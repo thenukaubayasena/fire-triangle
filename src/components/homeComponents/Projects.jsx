@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import project1 from "../../assets/projects/1.webp";
 import project2 from "../../assets/projects/19.jpg";
 import project3 from "../../assets/projects/23.webp";
-import project4 from "../../assets/projects/16.webp";
+import project4 from "../../assets/projects/10.webp";
 
 const RecentProjects = () => {
   const ref = useRef(null);

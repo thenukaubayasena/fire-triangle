@@ -5,9 +5,9 @@ import { useNavigate } from "react-router-dom";
 
 // Import product images - replace with actual product images
 import extinguisher from "../../assets/products/extinguisher.jpg";
-import alarm from "../../assets/products/protection.webp";
-import sprinkler from "../../assets/products/suit.avif";
-import detector from "../../assets/products/suppression.jpg";
+import alarm from "../../assets/products/alarm.jpg";
+import sprinkler from "../../assets/products/sprinkler.jpg";
+import detector from "../../assets/products/smoke.jpg";
 
 const OurProducts = () => {
   const ref = useRef(null);
