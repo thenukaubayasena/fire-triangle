@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import { motion, useAnimation, useInView } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 // Import product images - replace with actual product images
 import extinguisher from "../../assets/products/extinguisher.jpg";
@@ -12,6 +13,7 @@ const OurProducts = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   const animation = useAnimation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (isInView) {
@@ -120,15 +122,10 @@ const OurProducts = () => {
       </ProductsGrid>
 
       <ExploreButton
+        onClick={() => navigate('/products')}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        variants={{
-          hidden: { opacity: 0 },
-          visible: { opacity: 1 },
-        }}
-        initial="hidden"
-        animate={animation}
-        transition={{ duration: 0.6, delay: 0.8 }}
+        transition={{ type: "spring", stiffness: 400, damping: 10 }}
       >
         Explore All Products
       </ExploreButton>
@@ -275,27 +272,34 @@ const FeatureIcon = styled.span`
 `;
 
 const ExploreButton = styled(motion.button)`
-  margin-top: 2rem;
-  padding: 0.8rem 2.5rem;
-  font-size: 1rem;
+  margin-top: 1.5rem;
+  padding: 0.9rem 2.5rem;
+  font-size: 1.1rem;
   font-weight: 600;
-  color: white;
+  color: #fff;
   background-color: #d32f2f;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  letter-spacing: 1.2px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
     background-color: #b71c1c;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
   }
 
   @media (max-width: 768px) {
-    padding: 0.7rem 2rem;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0.7rem 1.8rem;
     font-size: 0.9rem;
+    margin-top: 1rem;
   }
 `;
 

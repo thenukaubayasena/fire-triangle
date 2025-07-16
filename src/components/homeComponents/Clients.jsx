@@ -7,6 +7,8 @@ import brand_3 from "../../assets/logos/bisma.png";
 import brand_4 from "../../assets/logos/sporting.png";
 import brand_5 from "../../assets/logos/rockland.jpg";
 import brand_6 from "../../assets/logos/sliate.jpg";
+import brand_7 from "../../assets/logos/norwood.jpeg";
+import brand_8 from "../../assets/logos/pera.jpg";
 
 const Clients = () => {
   const ref = useRef(null);
@@ -22,33 +24,35 @@ const Clients = () => {
   const clients = [
     {
       name: "Dinapala Group",
-      logo: brand_1, // Replace with actual path
-      testimonial: "Their fire safety systems have protected our facilities for over 5 years with zero incidents."
+      logo: brand_1 
     },
     {
       name: "Earl's Regent, Kandy",
-      logo: brand_2, // Replace with actual path
-      testimonial: "Professional service and reliable equipment that meets international standards."
+      logo: brand_2
     },
     {
       name: "Bisma Buscuits",
-      logo: brand_3, // Replace with actual path
-      testimonial: "Regular maintenance and prompt emergency response give us complete peace of mind."
+      logo: brand_3
     },
     {
       name: "Sporting Times",
-      logo: brand_4, // Replace with actual path
-      testimonial: "Critical infrastructure requires the best protection - that's why we chose End Fire Safety."
+      logo: brand_4
     },
     {
       name: "Rockland Distillers",
-      logo: brand_5, // Replace with actual path
-      testimonial: "Comprehensive fire safety solutions tailored specifically for the hospitality industry."
+      logo: brand_5
     },
     {
       name: "SLIATE - HNDM - KANDY",
-      logo: brand_6, // Replace with actual path
-      testimonial: "Trusted provider for our high-security government facilities."
+      logo: brand_6
+    },
+    {
+      name: "Norwood Fashions",
+      logo: brand_7
+    },
+    {
+      name: "University of Peradeniya",
+      logo: brand_8
     }
   ];
 
@@ -110,7 +114,6 @@ const Clients = () => {
               <img src={client.logo} alt={`${client.name} logo`} />
             </LogoContainer>
             <h3>{client.name}</h3>
-            <Testimonial>{client.testimonial}</Testimonial>
           </ClientCard>
         ))}
       </ClientsGrid>
@@ -198,17 +201,17 @@ const ClientCard = styled(motion.div)`
   }
 
   h3 {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 600;
     color: #333;
-    margin: 1.5rem 0 1rem;
-    line-height: 1.3;
+    margin: 1rem 0 1rem;
+    line-height: 1;
   }
 `;
 
 const LogoContainer = styled.div`
   width: 120px;
-  height: 80px;
+  height: 120px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -225,26 +228,6 @@ const LogoContainer = styled.div`
   ${ClientCard}:hover & img {
     filter: grayscale(0%);
     opacity: 1;
-  }
-`;
-
-const Testimonial = styled.p`
-  font-size: 0.95rem;
-  color: #666;
-  line-height: 1.6;
-  font-style: italic;
-  margin: 0;
-  position: relative;
-
-  &::before,
-  &::after {
-    content: '"';
-    color: #d32f2f;
-    font-size: 1.2rem;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 0.9rem;
   }
 `;
 

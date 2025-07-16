@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import fireSafetyBg from "../../assets/fire-safety-banner.jpeg";
 import { motion, useAnimation, useInView } from "framer-motion";
+import { FaPhoneAlt, FaShieldAlt, FaFireExtinguisher } from "react-icons/fa";
 
 const Banner = () => {
   const ref = useRef(null);
@@ -15,86 +16,138 @@ const Banner = () => {
   }, [isInView, animation]);
 
   return (
-    <Container>
+    <HeroContainer>
+      <BackgroundOverlay />
       <BackgroundImage src={fireSafetyBg} alt="Fire safety background" />
       
       <ContentWrapper>
-        <AnimatedText
-          ref={ref}
+        <Tagline
           variants={{
-            hidden: { opacity: 0, y: 50 },
+            hidden: { opacity: 0, y: 20 },
             visible: { opacity: 1, y: 0 },
           }}
           initial="hidden"
           animate={animation}
-          transition={{ duration: 0.6, delay: 0.3, type: "spring" }}
-          className="row1"
+          transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <h1>Your Trusted Partner in</h1>
-        </AnimatedText>
+          <FaShieldAlt /> SRI LANKA'S LEADING FIRE SAFETY SPECIALISTS
+        </Tagline>
         
-        <AnimatedText
+        <MainHeading ref={ref}>
+          <AnimatedLine
+            variants={{
+              hidden: { opacity: 0, y: 50 },
+              visible: { opacity: 1, y: 0 },
+            }}
+            initial="hidden"
+            animate={animation}
+            transition={{ duration: 0.8, delay: 0.4, type: "spring" }}
+          >
+            Comprehensive <Highlight>Fire Protection</Highlight>
+          </AnimatedLine>
+          <AnimatedLine
+            variants={{
+              hidden: { opacity: 0, y: 50 },
+              visible: { opacity: 1, y: 0 },
+            }}
+            initial="hidden"
+            animate={animation}
+            transition={{ duration: 0.8, delay: 0.6, type: "spring" }}
+          >
+            Solutions Since 2010
+          </AnimatedLine>
+        </MainHeading>
+        
+        <CTAWrap
           variants={{
-            hidden: { opacity: 0, y: 50 },
+            hidden: { opacity: 0, y: 30 },
             visible: { opacity: 1, y: 0 },
           }}
           initial="hidden"
           animate={animation}
-          transition={{ duration: 0.6, delay: 0.5, type: "spring" }}
-          className="row2"
+          transition={{ duration: 0.6, delay: 0.8 }}
         >
-          <h1><Highlight>Fire Safety</Highlight> Solutions</h1>
-        </AnimatedText>
+          <a href="tel:+94767565634" style={{ textDecoration: 'none' }}>
+            <PrimaryCTA whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <FaPhoneAlt /> Get Free Consultation
+            </PrimaryCTA>
+          </a>
+
+          <a href="/services" style={{ textDecoration: 'none' }}>
+            <SecondaryCTA whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <FaFireExtinguisher /> Our Services
+            </SecondaryCTA>
+          </a>
+        </CTAWrap>
         
         <StatsWrapper
           variants={{
-            hidden: { opacity: 0, scale: 0.8 },
-            visible: { opacity: 1, scale: 1 },
+            hidden: { opacity: 0 },
+            visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
           }}
           initial="hidden"
           animate={animation}
-          transition={{ duration: 0.5, delay: 0.8, type: "spring" }}
+          transition={{ delay: 1 }}
         >
-          <StatItem>
-            <span>100+</span>
-            <p>Protected Clients</p>
+          <StatItem
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0 },
+            }}
+          >
+            <StatNumber>500+</StatNumber>
+            <StatLabel>Projects Completed</StatLabel>
           </StatItem>
-          <StatItem>
-            <span>24/7</span>
-            <p>Emergency Service</p>
+          <StatDivider />
+          <StatItem
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0 },
+            }}
+          >
+            <StatNumber>24/7</StatNumber>
+            <StatLabel>Emergency Response</StatLabel>
           </StatItem>
-          <StatItem>
-            <span>ISO</span>
-            <p>Certified</p>
+          <StatDivider />
+          <StatItem
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0 },
+            }}
+          >
+            <StatNumber>ISO</StatNumber>
+            <StatLabel>Certified</StatLabel>
           </StatItem>
         </StatsWrapper>
       </ContentWrapper>
-    </Container>
+    </HeroContainer>
   );
 };
 
 // Styled Components
-const Container = styled.section`
+const HeroContainer = styled.section`
   position: relative;
   width: 100%;
+  height: 100vh;
   min-height: 700px;
   max-height: 1200px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  padding: 0 4%;
-  background-color: #f8f8f8;
+  padding: 0 5%;
+  isolation: isolate;
 
   @media (max-width: 768px) {
-    min-height: 400px;
-    height: calc(80vh - 50px);
+    min-height: 600px;
+    height: 90vh;
+    padding: 0 5%;
   }
 
   @media (max-width: 480px) {
-    min-height: 350px;
-    height: calc(70vh - 40px);
-    padding: 0 6%;
+    min-height: 500px;
+    height: 85vh;
+    padding: 0 7%;
   }
 `;
 
@@ -103,13 +156,20 @@ const BackgroundImage = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: 0;
-  opacity: 0.5;
-  filter: blur(2px) brightness(0.8);
+  z-index: -2;
+  filter: brightness(0.7);
+`;
 
-  @media (max-width: 480px) {
-    filter: blur(1.5px) brightness(0.85); /* Slightly sharper on mobile */
-  }
+const BackgroundOverlay = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(211, 47, 47, 0.15) 0%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+  z-index: -1;
 `;
 
 const ContentWrapper = styled.div`
@@ -121,114 +181,195 @@ const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.8rem; /* Reduced gap for mobile */
+  gap: 1.5rem;
+  padding-top: 80px;
 
-  @media (max-width: 480px) {
-    gap: 0.5rem;
+  @media (max-width: 768px) {
+    gap: 1rem;
   }
 `;
 
-const AnimatedText = styled(motion.div)`
-  overflow: hidden;
-  
-  h1 {
-    font-family: "Arial", sans-serif;
-    font-weight: 600;
-    margin: 0;
-    line-height: 1.3;
-    color: #333;
-    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
-    
-    @media (min-width: 1024px) {
-      font-size: 4.5rem;
-    }
-    
-    @media (min-width: 768px) and (max-width: 1023px) {
-      font-size: 3rem;
-    }
-    
-    @media (max-width: 767px) {
-      font-size: 2rem;
-    }
-    
-    @media (max-width: 480px) {
-      font-size: 1.6rem;
-    }
-  }
-  
-  &.row2 {
-    margin-bottom: 1.5rem;
+const Tagline = styled(motion.div)`
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 
-    @media (max-width: 480px) {
-      margin-bottom: 1rem;
-    }
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+  }
+`;
+
+const MainHeading = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+`;
+
+const AnimatedLine = styled(motion.h1)`
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.2;
+  color: white;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  
+  &:first-child {
+    margin-bottom: 0.5rem;
+  }
+
+  @media (max-width: 768px) {
+    line-height: 1.1;
   }
 `;
 
 const Highlight = styled.span`
-  color: #d32f2f;
-  font-weight: 700;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  color: #ffd700;
+  position: relative;
+  display: inline-block;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: rgba(211, 47, 47, 0.7);
+    z-index: -1;
+    border-radius: 2px;
+  }
 `;
 
-const StatsWrapper = styled(motion.div)`
+const CTAWrap = styled(motion.div)`
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
   margin-top: 1.5rem;
   flex-wrap: wrap;
   justify-content: center;
 
-  @media (max-width: 768px) {
-    gap: 1.5rem;
-    margin-top: 1rem;
-  }
-
   @media (max-width: 480px) {
+    flex-direction: column;
     gap: 1rem;
-    flex-direction: column; /* Stack stats vertically on small screens */
-    align-items: center;
+    width: 100%;
   }
 `;
 
-const StatItem = styled.div`
+const BaseCTA = styled(motion.button)`
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  @media (max-width: 768px) {
+    padding: 0.9rem 1.8rem;
+    font-size: 0.9rem;
+  }
+`;
+
+const PrimaryCTA = styled(BaseCTA)`
+  background-color: #d32f2f;
+  color: white;
+
+  &:hover {
+    background-color: #b71c1c;
+    box-shadow: 0 6px 20px rgba(211, 47, 47, 0.4);
+  }
+`;
+
+const SecondaryCTA = styled(BaseCTA)`
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #333;
+
+  &:hover {
+    background-color: white;
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+  }
+`;
+
+const StatsWrapper = styled(motion.div)`
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 1.5rem 2rem;
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  @media (max-width: 768px) {
+    gap: 1.5rem;
+    padding: 1rem 1.5rem;
+  }
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+`;
+
+const StatItem = styled(motion.div)`
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 100px; /* Prevent items from being too cramped */
+`;
+
+const StatNumber = styled.span`
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffd700;
+  line-height: 1;
+  margin-bottom: 0.3rem;
   
-  span {
-    font-family: "Arial", sans-serif;
-    font-size: 2.5rem;
-    color: #d32f2f;
-    font-weight: 700;
-    line-height: 1;
-    letter-spacing: 0.5px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-    
-    @media (max-width: 768px) {
-      font-size: 2rem;
-    }
-    
-    @media (max-width: 480px) {
-      font-size: 1.8rem;
-    }
+  @media (max-width: 768px) {
+    font-size: 2rem;
   }
+`;
+
+const StatLabel = styled.p`
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+  margin: 0;
   
-  p {
-    font-size: 0.9rem;
-    color: #555;
-    margin-top: 0.4rem;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    font-weight: 600;
-    
-    @media (max-width: 768px) {
-      font-size: 0.85rem;
-    }
-    
-    @media (max-width: 480px) {
-      font-size: 0.8rem;
-    }
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
+  }
+`;
+
+const StatDivider = styled.div`
+  width: 1px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.2);
+
+  @media (max-width: 480px) {
+    width: 80px;
+    height: 1px;
   }
 `;
 

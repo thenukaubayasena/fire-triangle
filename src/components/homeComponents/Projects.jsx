@@ -1,17 +1,19 @@
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import { motion, useAnimation, useInView } from "framer-motion";
+import { useNavigate } from 'react-router-dom';
 
 // Import images - replace with actual project images
-import project1 from "../../assets/projects/campus.jpg";
-import project2 from "../../assets/projects/highrise.jpg";
-import project3 from "../../assets/projects/hospital.jpg";
-import project4 from "../../assets/projects/industrial.jpg";
+import project1 from "../../assets/projects/1.webp";
+import project2 from "../../assets/projects/19.jpg";
+import project3 from "../../assets/projects/23.webp";
+import project4 from "../../assets/projects/16.webp";
 
 const RecentProjects = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   const animation = useAnimation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (isInView) {
@@ -20,30 +22,10 @@ const RecentProjects = () => {
   }, [isInView, animation]);
 
   const projects = [
-    { 
-      img: project1, 
-      title: "Commercial High-Rise", 
-      description: "Complete fire suppression system installation for Colombo's newest business tower",
-      category: "Fire Suppression Systems"
-    },
-    { 
-      img: project2, 
-      title: "Luxury Hotel Chain", 
-      description: "Integrated fire detection and alarm system across 5 properties",
-      category: "Detection Systems"
-    },
-    { 
-      img: project3, 
-      title: "Industrial Facility", 
-      description: "Custom-engineered fire protection solution for chemical storage areas",
-      category: "Industrial Solutions"
-    },
-    { 
-      img: project4, 
-      title: "Residential Complex", 
-      description: "Apartment building retrofit with modern fire safety equipment",
-      category: "Residential Safety"
-    }
+    { img: project1 },
+    { img: project2 },
+    { img: project3 },
+    { img: project4 }
   ];
 
   return (
@@ -106,27 +88,16 @@ const RecentProjects = () => {
                 alt={project.title} 
                 loading="lazy"
               />
-              <ProjectOverlay />
-              <ProjectCategory>{project.category}</ProjectCategory>
             </ProjectImage>
-            <ProjectContent>
-              <h3>{project.title}</h3>
-              <p>{project.description}</p>
-            </ProjectContent>
           </ProjectCard>
         ))}
       </ProjectsGrid>
 
       <ViewAllButton
+        onClick={() => navigate('/projects')}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        variants={{
-          hidden: { opacity: 0 },
-          visible: { opacity: 1 },
-        }}
-        initial="hidden"
-        animate={animation}
-        transition={{ duration: 0.6, delay: 0.8 }}
+        transition={{ type: "spring", stiffness: 400, damping: 10 }}
       >
         View All Projects
       </ViewAllButton>
@@ -195,39 +166,9 @@ const ProjectsGrid = styled.div`
   }
 `;
 
-const ProjectContent = styled.div`
-  padding: 1.5rem;
-  text-align: left;
-  background: white;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-
-  h3 {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 0.5rem;
-  }
-
-  p {
-    font-size: 0.95rem;
-    color: #666;
-    line-height: 1.5;
-  }
-`;
-
-const ProjectOverlay = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 100%);
-`;
-
 const ProjectImage = styled.div`
   width: 100%;
-  height: 220px;
+  height: 300px;
   position: relative;
   overflow: hidden;
 
@@ -237,19 +178,6 @@ const ProjectImage = styled.div`
     object-fit: cover;
     transition: transform 0.5s ease;
   }
-`;
-
-const ProjectCategory = styled.span`
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: #d32f2f;
-  color: white;
-  padding: 0.3rem 0.8rem;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  z-index: 2;
 `;
 
 const ProjectCard = styled(motion.div)`
@@ -271,27 +199,34 @@ const ProjectCard = styled(motion.div)`
 `;
 
 const ViewAllButton = styled(motion.button)`
-  margin-top: 2rem;
-  padding: 0.8rem 2.5rem;
-  font-size: 1rem;
+  margin-top: 1.5rem;
+  padding: 0.9rem 2.5rem;
+  font-size: 1.1rem;
   font-weight: 600;
-  color: white;
+  color: #fff;
   background-color: #d32f2f;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  letter-spacing: 1.2px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
     background-color: #b71c1c;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
   }
 
   @media (max-width: 768px) {
-    padding: 0.7rem 2rem;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0.7rem 1.8rem;
     font-size: 0.9rem;
+    margin-top: 1rem;
   }
 `;
 
