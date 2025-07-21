@@ -34,7 +34,7 @@ const Navbar = () => {
       <LogoContainer>
         <LogoLink to="/">
           <Logo src={logo} alt="Fire Triangle Logo" loading="lazy" />
-          <CompanyName $scrolled={scrolled}>Fire Triangle</CompanyName>
+          <CompanyName $scrolled={scrolled}>Fire Triangle Fire & Safety Service</CompanyName>
         </LogoLink>
       </LogoContainer>
 
@@ -112,7 +112,7 @@ const Logo = styled.img`
   height: ${props => props.$scrolled ? '35px' : '40px'};
   width: auto;
   transition: all 0.3s ease;
-  filter: brightness(0) invert(1);
+  // filter: brightness(0) invert(1);
 
   &:hover {
     transform: scale(1.05);

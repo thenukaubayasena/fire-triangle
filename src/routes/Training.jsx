@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import { motion, useAnimation, useInView } from "framer-motion";
-import { FaFireExtinguisher, FaUserShield, FaChalkboardTeacher, FaCertificate, FaCalendarAlt, FaClock } from "react-icons/fa";
+import { FaFireExtinguisher, FaUserShield, FaPhoneAlt, FaChalkboardTeacher, FaCertificate, FaCalendarAlt, FaClock } from "react-icons/fa";
 
 const Training = () => {
   const ref = useRef(null);
@@ -62,9 +62,9 @@ const Training = () => {
   const trainingBenefits = [
     "Reduced workplace fire incidents by up to 70%",
     "Compliance with Sri Lankan Fire Department regulations",
-    "Certificates valid for 2 years",
-    "On-site or at our training center",
-    "Available in Sinhala/Tamil/English"
+    "Certificates valid for 1 year",
+    "On-site",
+    "Available in Sinhala/English"
   ];
 
   return (
@@ -124,9 +124,9 @@ const Training = () => {
             >
               <CourseIcon>{course.icon}</CourseIcon>
               <CourseTitle>{course.title}</CourseTitle>
-              <CourseDuration>
+              {/* <CourseDuration>
                 <FaClock /> {course.duration}
-              </CourseDuration>
+              </CourseDuration> */}
               <CourseDescription>{course.description}</CourseDescription>
               
               <CourseFeatures>
@@ -166,7 +166,7 @@ const Training = () => {
         </BenefitsSection>
 
         {/* Corporate Training */}
-        <CorporateSection
+        {/* <CorporateSection
           variants={{
             hidden: { opacity: 0, y: 50 },
             visible: { opacity: 1, y: 0 },
@@ -186,7 +186,29 @@ const Training = () => {
             <li>Equipment types</li>
           </CorporateFeatures>
           <ContactButton>Request Custom Training</ContactButton>
-        </CorporateSection>
+        </CorporateSection> */}
+
+        {/* Consultation CTA */}
+        <ConsultationCTA
+          variants={{
+            hidden: { opacity: 0, y: 50 },
+            visible: { opacity: 1, y: 0 },
+          }}
+          initial="hidden"
+          animate={animation}
+          transition={{ duration: 0.6, delay: 0.8 }}
+        >
+          <h3>Need Expert Advice on Fire Safety Products?</h3>
+          <p>Our IFE(UK) certified specialists can assess your requirements and recommend the optimal solutions</p>
+          <ButtonGroup>
+            <EmergencyButton
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <FaPhoneAlt /> Emergency: +94 76 756 5634
+            </EmergencyButton>
+          </ButtonGroup>
+        </ConsultationCTA>
       </MainContent>
     </TrainingContainer>
   );
@@ -424,6 +446,95 @@ const ContactButton = styled.button`
 
   &:hover {
     transform: translateY(-3px);
+  }
+`;
+
+const ButtonGroup = styled.div`
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    gap: 1rem;
+  }
+`;
+
+const ConsultationCTA = styled(motion.div)`
+  background: linear-gradient(135deg, #d32f2f, #b71c1c);
+  color: white;
+  padding: 3rem 2rem;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  box-shadow: 0 10px 30px rgba(211, 47, 47, 0.3);
+
+  h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+
+    @media (max-width: 768px) {
+      font-size: 1.5rem;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 1.3rem;
+    }
+  }
+
+  p {
+    opacity: 0.9;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 2rem 1.5rem;
+  }
+`;
+
+const EmergencyButton = styled(motion.button)`
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  svg {
+    font-size: 1.2rem;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0.9rem 1.8rem;
+    font-size: 1rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+    width: 100%;
+    justify-content: center;
   }
 `;
 

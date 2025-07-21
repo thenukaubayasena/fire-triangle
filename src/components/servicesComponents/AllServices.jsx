@@ -50,7 +50,7 @@ const AllServices = () => {
         "Water Leak Detection Systems"
       ],
       standards: "IFE(UK) & Sri Lankan Fire Department Approved",
-      brands: ["Gentex Corporation", "Bristol", "Klaxon", "AIM/Sense Series"]
+      brands: ["Horing", "C-TEC", "Asenware", "Apollo", "EVERSAFE", "NEWAGE"]
     },
     {
       id: 2,
@@ -69,7 +69,7 @@ const AllServices = () => {
         "Pre-engineered & engineered solutions"
       ],
       standards: "NFPA, BS EN & FM Global Standards",
-      brands: ["NAF", "FirePro", "Kidde", "Ansul"]
+      brands: ["Honeywell", "Safeguard", "Kidde", "Apollo"]
     },
     {
       id: 3,
@@ -87,7 +87,7 @@ const AllServices = () => {
         "Regular testing & commissioning"
       ],
       standards: "BS EN 12845, NFPA, FM Global Certified",
-      brands: ["Tyco", "Viking", "Reliable", "Grundfos"]
+      brands: ["Asenware", "NEWAGE", "EVERSAFE"]
     },
     {
       id: 4,
@@ -106,47 +106,10 @@ const AllServices = () => {
         "Staff training on proper usage"
       ],
       standards: "ISI, KITE & Sri Lankan Fire Department Approved",
-      brands: ["Amerex", "Buckeye", "Badger", "Fire Fighter"]
-    },
-    {
-      id: 5,
-      title: "Aerosol Suppression",
-      icon: <GiChemicalDrop />,
-      description: "Innovative non-pressurized suppression technology requiring minimal maintenance",
-      features: [
-        "Autonomous operation (no external power needed)",
-        "Flexible & modular installation",
-        "Non-pressurized containers for safety",
-        "Space and weight saving solutions",
-        "Electrical, thermal or manual activation",
-        "Suitable for A, B, C, F class fires",
-        "Natural mineral coolant (non-pyrotechnic)",
-        "Built-in fail-safe activation system",
-        "Long operation lifetime with stability"
-      ],
-      standards: "International Fire Safety Standards",
-      brands: ["FirePro", "Stat-X", "Aerosol"]
+      brands: ["Howdy", "Evolution", "EVERSAFE"]
     },
     {
       id: 6,
-      title: "Smoke Ventilation",
-      icon: <FaWind />,
-      description: "Comprehensive smoke control systems for building safety compliance",
-      features: [
-        "Window Activators with Reliable Control Systems",
-        "Automatic Opening Vents (AOVs)",
-        "Mechanical Smoke Ventilation with Powered Fans",
-        "Powered Extract Systems",
-        "Natural Ventilation Solutions",
-        "Integrated with Fire Alarm Systems",
-        "BS 7346-4 Compliant Designs",
-        "Regular Maintenance Contracts"
-      ],
-      standards: "BS 7346-4 & EN 12101 Standards",
-      brands: ["Colt", "Swegon", "Gilberts", "Ventcroft"]
-    },
-    {
-      id: 7,
       title: "Security Systems",
       icon: <MdSecurity />,
       description: "Integrated security solutions to complement fire safety systems",
@@ -164,7 +127,7 @@ const AllServices = () => {
       brands: ["Hikvision", "Dahua", "Bosch", "Honeywell"]
     },
     {
-      id: 8,
+      id: 7,
       title: "Risk Management",
       icon: <FaChartLine />,
       description: "Comprehensive fire safety assessments and emergency planning services",
@@ -182,7 +145,7 @@ const AllServices = () => {
       brands: []
     },
     {
-      id: 9,
+      id: 8,
       title: "Training Programs",
       icon: <FaUserGraduate />,
       description: "Certified fire safety education for organizations of all sizes",
@@ -200,7 +163,7 @@ const AllServices = () => {
       brands: []
     },
     {
-      id: 10,
+      id: 9,
       title: "Design & Engineering",
       icon: <MdDesignServices />,
       description: "Professional fire protection system design and engineering services",
@@ -215,7 +178,7 @@ const AllServices = () => {
         "Commissioning Support"
       ],
       standards: "NFPA, BS, FM Global Standards",
-      brands: ["AutoCAD", "Revit", "HydraCAD"]
+      brands: []
     }
   ];
 

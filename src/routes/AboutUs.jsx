@@ -336,6 +336,15 @@ const AboutUs = () => {
             <ClientLogo>Udarata Development Authority</ClientLogo>
             <ClientLogo>Hela Clothing (Pvt) Ltd</ClientLogo>
             <ClientLogo>Pradeshiya Sabawa, Bulathkohupitiya</ClientLogo>
+            <ClientLogo>Heaven Breeze Hotel, Ella</ClientLogo>
+            <ClientLogo>Rainco</ClientLogo>
+            <ClientLogo>Milco (Pvt) Ltd</ClientLogo>
+            <ClientLogo>Hotel Nilakma Lagoon</ClientLogo>
+            <ClientLogo>Habib Bank Limited (HBL)</ClientLogo>
+            <ClientLogo>CIB Group</ClientLogo>
+            <ClientLogo>Lakro Packaging Industries (Pvt) Ltd</ClientLogo>
+            <ClientLogo>RAN Holdings (Pvt) Ltd</ClientLogo>
+            <ClientLogo>The Deer Park Hotel</ClientLogo>
           </ClientLogos>
         </ClientsSection>
       </ContentSection>

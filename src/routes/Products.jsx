@@ -56,7 +56,7 @@ const Products = () => {
       ],
       description: "Complete range of certified fire extinguishers approved by Sri Lankan Fire Department for all fire classes (A, B, C, F). Our engineers ensure proper installation in optimal locations.",
       standards: "ISI, KITE & SLS Standards",
-      brands: ["Amerex", "Buckeye", "Badger", "Fire Fighter"]
+      brands: ["Howdy", "Evolution", "EVERSAFE"]
     },
     {
       id: 2,
@@ -75,7 +75,7 @@ const Products = () => {
       ],
       description: "Complete fire detection solutions from internationally renowned manufacturers, approved to IFE(UK) and Sri Lankan Fire Department standards.",
       standards: "EN 54 & NFPA 72 Certified",
-      brands: ["Gentex", "Bristol", "Klaxon", "AIM/Sense"]
+      brands: ["Horing", "C-TEC", "Asenware", "Apollo", "EVERSAFE"]
     },
     {
       id: 3,
@@ -94,48 +94,10 @@ const Products = () => {
       ],
       description: "BS EN 12845 and NFPA compliant sprinkler systems designed using specialized FHC hydraulic calculation software that complies with 16 international standards.",
       standards: "BS EN 12845, NFPA 13, FM Global",
-      brands: ["Tyco", "Viking", "Reliable", "Grundfos"]
+      brands: ["Asenware", "NEWAGE", "EVERSAFE"]
     },
     {
       id: 4,
-      name: "Gaseous Suppression",
-      image: suppressionImg,
-      icon: <MdSmokeFree />,
-      types: [
-        "FM200 Clean Agent Systems",
-        "NAF S125 & NAF 227ea",
-        "Inergen (IG-541) Systems",
-        "Novec 1230 Solutions",
-        "Argonite & Argon Systems",
-        "CO₂ Flooding Systems",
-        "Control Panels & Detection",
-        "Nozzles & Pipe Networks"
-      ],
-      description: "Specialist gaseous suppression systems for protecting critical assets like server rooms, archives, and industrial facilities with minimal residue.",
-      standards: "ISO 14520, NFPA 2001",
-      brands: ["Kidde", "Siemens", "Notifier", "Fike"]
-    },
-    {
-      id: 5,
-      name: "Aerosol Suppression",
-      image: aerosolImg,
-      icon: <GiChemicalDrop />,
-      types: [
-        "Autonomous Aerosol Units",
-        "Electrical Activation Systems",
-        "Thermal Activation Devices",
-        "Manual Release Options",
-        "Modular Configuration Units",
-        "Compact Space-Saving Designs",
-        "Industrial Grade Protection",
-        "Marine Approved Systems"
-      ],
-      description: "Innovative non-pressurized suppression technology using natural mineral coolant that doesn't contain pyrotechnic materials, with minimal maintenance requirements.",
-      standards: "UL 2775, EN 15276 Certified",
-      brands: ["FirePro", "Stat-X", "Aerosol"]
-    },
-    {
-      id: 6,
       name: "Kitchen Suppression",
       image: kitchenSystemImg,
       icon: <GiFireflake />,
@@ -151,48 +113,10 @@ const Products = () => {
       ],
       description: "Specialized kitchen fire suppression systems that automatically detect and suppress grease fires while shutting off fuel sources to prevent reignition.",
       standards: "UL 300, NFPA 17A, EN 12416",
-      brands: ["Ansul", "Amerex", "Badger", "Piranha"]
+      brands: []
     },
     {
-      id: 7,
-      name: "Tube Technology",
-      image: tubeTechImg,
-      icon: <GiGasMask />,
-      types: [
-        "Detection/Discharge Tube Systems",
-        "FM-200 Tube Systems",
-        "CO₂ Tube Systems",
-        "Novec Tube Systems",
-        "Industrial Machine Protection",
-        "Electrical Cabinet Systems",
-        "Vehicle Engine Bay Protection",
-        "Optional Pressure Switches"
-      ],
-      description: "Innovative 'all-in-one' detection and extinguishment systems where the tube ruptures at the hotspot to discharge agent directly on the fire source.",
-      standards: "ISO 15779, NFPA 2010",
-      brands: ["Firetrace", "Fogtec", "Victaulic"]
-    },
-    {
-      id: 8,
-      name: "Smoke Ventilation",
-      image: smokeVentImg,
-      icon: <FaFan />,
-      types: [
-        "Automatic Opening Vents (AOVs)",
-        "Window Activators & Controllers",
-        "Mechanical Smoke Ventilation Fans",
-        "Powered Extract Systems",
-        "Atrium Smoke Control",
-        "Stairwell Pressurization",
-        "Smoke Curtains & Barriers",
-        "BS 7346-4 Compliant Systems"
-      ],
-      description: "Comprehensive smoke control systems to maintain clear escape routes, facilitate firefighting operations, and reduce property damage from smoke.",
-      standards: "BS 7346-4, EN 12101",
-      brands: ["Colt", "Swegon", "Gilberts", "Ventcroft"]
-    },
-    {
-      id: 9,
+      id: 5,
       name: "Security Systems",
       image: securityImg,
       icon: <MdSecurity />,
@@ -211,7 +135,7 @@ const Products = () => {
       brands: ["Hikvision", "Dahua", "Bosch", "Honeywell"]
     },
     {
-      id: 10,
+      id: 6,
       name: "Detection Devices",
       image: detectorImg,
       icon: <FaShieldAlt />,
@@ -227,7 +151,7 @@ const Products = () => {
       ],
       description: "Advanced detection technology for early warning of fire and hazardous conditions in diverse environments from industrial facilities to commercial buildings.",
       standards: "EN 54, UL 268, FM 3260",
-      brands: ["System Sensor", "Hochiki", "Apollo", "Notifier"]
+      brands: ["Horing", "C-TEC", "Asenware", "Apollo", "EVERSAFE"]
     }
   ];
 

@@ -34,38 +34,42 @@ const Projects = () => {
   }, [isInView, animation]);
 
   const clients = [
-    { name: "Rockwood Apartment", location: "Colombo 07", category: "residential" },
-    { name: "Rockland (Pvt) Ltd", location: "Kiimandala Mawatha, Colombo 05", category: "commercial" },
-    { name: "Brandix (Pvt) Ltd", location: "Rambukkana", category: "industrial" },
-    { name: "Vishwa Enterprises (Pvt) Ltd", location: "Makola Road, Kiribathgoda", category: "commercial" },
-    { name: "Enrich Group", location: "Hawaeliya Rd, Nuwar Eliya", category: "commercial" },
-    { name: "Asiri Agro Foods (Pvt) Ltd", location: "Matale", category: "industrial" },
-    { name: "Agrarian Development District Office", location: "Matale", category: "government" },
-    { name: "Litro Gas", location: "Molamure Road, Kegalle", category: "industrial" },
     { name: "Dinapala Group", location: "No: 39, Cross Street, Kandy", category: "commercial" },
     { name: "Indra Motor Spares (Pvt) Ltd", location: "No: 138, 140, D.S. Senanayaka Weediya, Kandy", category: "commercial" },
     { name: "Indra Finance Ltd", location: "No: 187, Katugastota Road, Kandy", category: "commercial" },
     { name: "Dinapala (Pvt) Ltd", location: "No: 63, Kings Street, Kandy", category: "commercial" },
-    { name: "President's House", location: "Colombo 01", category: "government" },
-    { name: "President's House", location: "Kandy", category: "government" },
-    { name: "Ackland House", location: "Colombo 02", category: "residential" },
     { name: "District General Hospital", location: "Monaragala", category: "healthcare" },
     { name: "Kegalle Pradesiya Sabawa", location: "Buluruppa, Hettimulla", category: "government" },
     { name: "Pradeshiya Sabawa", location: "Bulathkohupitiya", category: "government" },
-    { name: "Galigomuwa Pradesiya Sabawa", location: "Pitagaldeniya", category: "government" },
+    { name: "Galigamuwa Pradesiya Sabawa", location: "Pitagaldeniya", category: "government" },
     { name: "Udarata Development Authority Of Sri Lanka", location: "No: 1120, Gatambe, Peradeniya", category: "government" },
-    { name: "Higurangala Tea Factory", location: "Guruluwana, Gileemale", category: "industrial" },
     { name: "Earl's Court (Pvt) Ltd", location: "Kandy", category: "hospitality" },
     { name: "Earl's Regency Hotel", location: "No: 40/1, Deveni Rajasinha Mw, Peradeniya, Kandy", category: "hospitality" },
     { name: "Earl's Court (Pvt) Ltd, Borkside Nature Resort", location: "Dumbbara Vally, Alkaduwa Road, Waththegama", category: "hospitality" },
     { name: "Hela Clothing (Pvt) Ltd", location: "Arangala, Naula", category: "industrial" },
-    { name: "Manchester Foods (Pvt) Ltd", location: "Wattegama Road, Ukuwela", category: "industrial" },
-    { name: "Tristar Explosive", location: "Oyamaduwa, Anuradhapura", category: "industrial" },
-    { name: "Deer Park Hotel", location: "Girithale", category: "hospitality" },
+    { name: "The Deer Park Hotel", location: "Girithale", category: "hospitality" },
     { name: "Advance Technical College", location: "Kandy", category: "education" },
     { name: "National Water Supply and Drainage Board", location: "Badulla", category: "government" },
     { name: "Hydro Power Station", location: "Ukuwela", category: "industrial" },
-    { name: "Syrex Hi-Tec Power Co. Ltd", location: "Unknown", category: "industrial" }
+    { name: "Syrex Hi-Tec Power Co. Ltd", location: "Colombo", category: "industrial" },
+    { name: "Bisma Buscuits", location: "Ukuwela", category: "industrial" },
+    { name: "Sporting Times", location: "Kandy", category: "commercial" },   
+    { name: "Milco (Pvt) Ltd", location: "Digana", category: "industrial" },
+    { name: "Rainco", location: "Kadugannawa", category: "industrial" },
+    { name: "Norwood Fashions", location: "Wallawa", category: "commercial" },
+    { name: "University of Peradeniya", location: "Peradeniya", category: "education" },
+    { name: "Lanka Automated Filling Station", location: "Kegalle", category: "industrial" },
+    { name: "Siyarata Ayurweda Hospital", location: "Pallekale", category: "industrial" },
+    { name: "CIB Group", location: "Sri Lanka", category: "industrial" },
+    { name: "CARS Body Shop", location: "Kandy", category: "education" },
+    { name: "Hela Clothing (Pvt) Ltd", location: "Naula", category: "industrial" },
+    { name: "Lakro Packaging Industries (Pvt) Ltd", location: "Nittambuwa", category: "industrial" },
+    { name: "RAN Holdings (Pvt) Ltd", location: "Kandy", category: "industrial" },
+    { name: "Hotel Nilakma Lagoon", location: "Negambo", category: "hospitality" },
+    { name: "Habib Bank Limited (HBL)", location: "Colombo", category: "commercial" },
+    { name: "Heaven Breeze Hotel", location: "Ella", category: "education" },
+    { name: "Serandib Signature Resort", location: "Rajawella", category: "industrial" },
+    { name: "China Sri Lanka Joint Research and Demonstration Center for Water Technology", location: "Peradeniya", category: "industrial" },
   ];
 
   const projects = [
@@ -233,32 +237,6 @@ const Projects = () => {
             ))}
           </ClientsGrid>
         </ClientsSection>
-
-        {/* Client Testimonial */}
-        <TestimonialSection
-          variants={{
-            hidden: { opacity: 0 },
-            visible: { opacity: 1 },
-          }}
-          initial="hidden"
-          animate={animation}
-          transition={{ duration: 0.6, delay: 0.8 }}
-        >
-          <TestimonialContent>
-            <QuoteIcon>
-              <FaQuoteLeft />
-            </QuoteIcon>
-            <TestimonialText>
-              Fire Triangle installed our factory's fire protection system 5 years ago and has maintained 
-              it flawlessly. Their team's technical expertise and regular maintenance have given us 
-              complete peace of mind.
-            </TestimonialText>
-            <ClientInfo>
-              <ClientName1>Rajiv Perera</ClientName1>
-              <ClientPosition>Factory Manager, Rockland (Pvt) Ltd</ClientPosition>
-            </ClientInfo>
-          </TestimonialContent>
-        </TestimonialSection>
       </MainContent>
     </ProjectsContainer>
   );
@@ -390,52 +368,6 @@ const IntroText = styled(motion.p)`
   }
 `;
 
-const FilterContainer = styled(motion.div)`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 3rem;
-  padding: 0 1rem;
-
-  @media (max-width: 768px) {
-    gap: 0.8rem;
-    margin-bottom: 2rem;
-  }
-
-  @media (max-width: 480px) {
-    gap: 0.5rem;
-  }
-`;
-
-const FilterButton = styled(motion.button)`
-  padding: 0.8rem 1.5rem;
-  border-radius: 30px;
-  border: none;
-  background: ${props => props.active ? '#d32f2f' : '#f0f0f0'};
-  color: ${props => props.active ? 'white' : '#555'};
-  font-weight: ${props => props.active ? '600' : '500'};
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 0.95rem;
-  box-shadow: ${props => props.active ? '0 4px 12px rgba(211, 47, 47, 0.3)' : 'none'};
-
-  &:hover {
-    background: ${props => props.active ? '#d32f2f' : '#e0e0e0'};
-    transform: translateY(-2px);
-  }
-
-  @media (max-width: 768px) {
-    padding: 0.6rem 1.2rem;
-    font-size: 0.9rem;
-  }
-
-  @media (max-width: 480px) {
-    padding: 0.5rem 1rem;
-    font-size: 0.8rem;
-  }
-`;
-
 const Section = styled.section`
   margin-bottom: 5rem;
 
@@ -552,87 +484,6 @@ const ProjectImage = styled.div`
   }
 `;
 
-const ProjectOverlay = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.2) 100%);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 2rem;
-  color: white;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-
-  ${ProjectCard}:hover & {
-    opacity: 1;
-  }
-
-  @media (max-width: 768px) {
-    padding: 1.5rem;
-    opacity: 1;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
-  }
-`;
-
-const ProjectTitle = styled.h3`
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-
-  @media (max-width: 768px) {
-    font-size: 1.3rem;
-  }
-`;
-
-const ProjectLocation = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 1rem;
-  opacity: 0.9;
-
-  svg {
-    color: #d32f2f;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 0.9rem;
-  }
-`;
-
-const ProjectBadge = styled.div`
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  background: rgba(255, 255, 255, 0.9);
-  color: #d32f2f;
-  padding: 0.5rem 1rem;
-  border-radius: 30px;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.9rem;
-  font-weight: 600;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  z-index: 2;
-
-  svg {
-    font-size: 1rem;
-  }
-
-  @media (max-width: 768px) {
-    top: 1rem;
-    right: 1rem;
-    font-size: 0.85rem;
-    padding: 0.4rem 0.8rem;
-  }
-`;
-
 const ClientsGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -718,112 +569,6 @@ const ClientLocation = styled.div`
     color: #d32f2f;
     font-size: 1rem;
   }
-
-  @media (max-width: 768px) {
-    font-size: 0.9rem;
-  }
-`;
-
-const TestimonialSection = styled(motion.div)`
-  background: linear-gradient(135deg, #f8f8f8 0%, #ffffff 100%);
-  border-radius: 15px;
-  padding: 4rem;
-  max-width: 1000px;
-  margin: 0 auto;
-  text-align: center;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  position: relative;
-  overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 5px;
-    background: linear-gradient(90deg, #d32f2f 0%, #ff6b6b 100%);
-  }
-
-  @media (max-width: 1024px) {
-    padding: 3rem 2rem;
-  }
-
-  @media (max-width: 768px) {
-    padding: 2.5rem 1.5rem;
-  }
-
-  @media (max-width: 480px) {
-    padding: 2rem 1rem;
-  }
-`;
-
-const TestimonialContent = styled.div`
-  position: relative;
-`;
-
-const QuoteIcon = styled.div`
-  color: #d32f2f;
-  opacity: 0.2;
-  font-size: 5rem;
-  position: absolute;
-  top: -1rem;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 0;
-
-  @media (max-width: 768px) {
-    font-size: 4rem;
-    top: -0.5rem;
-  }
-`;
-
-const TestimonialText = styled.p`
-  font-size: clamp(1.2rem, 2vw, 1.4rem);
-  line-height: 1.8;
-  color: #555;
-  font-style: italic;
-  margin-bottom: 2rem;
-  position: relative;
-  z-index: 1;
-
-  @media (max-width: 1024px) {
-    font-size: 1.2rem;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 1.1rem;
-    margin-bottom: 1.5rem;
-  }
-
-  @media (max-width: 480px) {
-    font-size: 1rem;
-  }
-`;
-
-const ClientInfo = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  z-index: 1;
-`;
-
-const ClientName1 = styled.div`
-  font-weight: 700;
-  color: #222;
-  font-size: 1.3rem;
-  margin-bottom: 0.3rem;
-
-  @media (max-width: 768px) {
-    font-size: 1.2rem;
-  }
-`;
-
-const ClientPosition = styled.div`
-  font-size: 1rem;
-  color: #777;
 
   @media (max-width: 768px) {
     font-size: 0.9rem;

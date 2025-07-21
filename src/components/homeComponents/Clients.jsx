@@ -5,10 +5,11 @@ import brand_1 from "../../assets/logos/dinapala.jpg";
 import brand_2 from "../../assets/logos/earls.jpg";
 import brand_3 from "../../assets/logos/bisma.png";
 import brand_4 from "../../assets/logos/sporting.png";
-import brand_5 from "../../assets/logos/rockland.jpg";
-import brand_6 from "../../assets/logos/sliate.jpg";
+import brand_5 from "../../assets/logos/digana.jpg";
+import brand_6 from "../../assets/logos/rainco.jpg";
 import brand_7 from "../../assets/logos/norwood.jpeg";
 import brand_8 from "../../assets/logos/pera.jpg";
+
 
 const Clients = () => {
   const ref = useRef(null);
@@ -37,6 +38,14 @@ const Clients = () => {
     {
       name: "Sporting Times",
       logo: brand_4
+    },
+    {
+      name: "Milco (Pvt) Ltd",
+      logo: brand_5
+    },
+    {
+      name: "Rainco",
+      logo: brand_6
     },
     {
       name: "Norwood Fashions",
