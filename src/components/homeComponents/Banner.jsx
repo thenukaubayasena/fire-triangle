@@ -54,7 +54,7 @@ const Banner = () => {
             animate={animation}
             transition={{ duration: 0.8, delay: 0.6, type: "spring" }}
           >
-            Solutions Since 2010
+            Solutions Since 2005
           </AnimatedLine>
         </MainHeading>
         
@@ -69,7 +69,7 @@ const Banner = () => {
         >
           <a href="tel:+94767565634" style={{ textDecoration: 'none', width: '100%', maxWidth: '300px' }}>
             <PrimaryCTA whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <FaPhoneAlt /> Free Consultation
+              <FaPhoneAlt /> Hotline
             </PrimaryCTA>
           </a>
 

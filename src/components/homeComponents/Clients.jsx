@@ -39,14 +39,6 @@ const Clients = () => {
       logo: brand_4
     },
     {
-      name: "Rockland Distillers",
-      logo: brand_5
-    },
-    {
-      name: "SLIATE - HNDM - KANDY",
-      logo: brand_6
-    },
-    {
       name: "Norwood Fashions",
       logo: brand_7
     },

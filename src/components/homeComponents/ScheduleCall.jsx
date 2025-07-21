@@ -53,7 +53,7 @@ const ScheduleCall = () => {
               <strong>Working Hours:</strong> <br />Monday - Saturday: 8:00 AM - 5:00 PM
             </ContactItem>
             <ContactItem>
-              <strong>Contact Us:</strong> <br />Phone: +94 76 756 5634<br />
+              <strong>Contact Us:</strong> <br />Phone: +94 76 756 5634 / +94 35 223 0015<br />
               Email: firetrianglekeg@gmail.com
             </ContactItem>
             <CallButton

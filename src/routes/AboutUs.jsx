@@ -330,10 +330,6 @@ const AboutUs = () => {
           </SectionHeader>
           
           <ClientLogos>
-            <ClientLogo>Rockland (Pvt) Ltd</ClientLogo>
-            <ClientLogo>Brandix (Pvt) Ltd</ClientLogo>
-            <ClientLogo>Litro Gas</ClientLogo>
-            <ClientLogo>President House</ClientLogo>
             <ClientLogo>Earl's Regency Hotel</ClientLogo>
             <ClientLogo>District General Hospital, Monaragala</ClientLogo>
             <ClientLogo>National Water Supply Board, Badulla</ClientLogo>

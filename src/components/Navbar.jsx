@@ -63,7 +63,7 @@ const Navbar = () => {
         </NavItem>
         
         <EmergencyContact href="tel:+94767565634">
-          <FaPhoneAlt /> Emergency
+          <FaPhoneAlt /> Hotline
         </EmergencyContact>
       </NavMenu>
 

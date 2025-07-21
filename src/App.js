@@ -7,6 +7,7 @@ import Services from "./routes/Services";
 import AboutUs from "./routes/AboutUs";
 import Products from "./routes/Products";
 import Projects from "./routes/Projects";
+import Training from "./routes/Training";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -22,6 +23,7 @@ function App() {
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/products" element={<Products />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/training" element={<Training />} />
         </Routes>
         <Footer />
       </div>
