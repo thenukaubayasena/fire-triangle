@@ -5,26 +5,20 @@ import {
   FaFireExtinguisher, 
   FaBell, 
   FaShieldAlt,
-  FaGasPump,
   FaWater,
-  FaFan,
   FaCheck,
   FaPhoneAlt,
   FaTools
 } from "react-icons/fa";
-import { MdSecurity, MdSmokeFree, MdDesignServices } from "react-icons/md";
-import { GiSpray, GiChemicalDrop, GiGasMask, GiFireflake } from "react-icons/gi";
+import { MdSecurity } from "react-icons/md";
+import { GiFireflake } from "react-icons/gi";
 
 // Import product images (replace with actual paths)
 import extinguisherImg from "../assets/products/extinguisher.jpg";
 import alarmSystemImg from "../assets/products/alarm-system.jpg";
 import sprinklerImg from "../assets/products/sprinkler.jpg";
-import suppressionImg from "../assets/products/suppression.jpg";
-import aerosolImg from "../assets/products/aerosol.webp";
-import smokeVentImg from "../assets/products/smoke-vent.jpg";
 import securityImg from "../assets/products/security.png";
 import detectorImg from "../assets/products/detector.avif";
-import tubeTechImg from "../assets/products/tube-tech.avif";
 import kitchenSystemImg from "../assets/products/kitchen-system.jpg";
 
 const Products = () => {
@@ -707,35 +701,6 @@ const ButtonGroup = styled.div`
 
   @media (max-width: 768px) {
     gap: 1rem;
-  }
-`;
-
-const ConsultationButton = styled(motion.button)`
-  background: white;
-  color: #d32f2f;
-  border: none;
-  padding: 1rem 2.5rem;
-  font-size: 1.1rem;
-  font-weight: 600;
-  border-radius: 50px;
-  cursor: pointer;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  }
-
-  @media (max-width: 768px) {
-    padding: 0.9rem 2rem;
-    font-size: 1rem;
-  }
-
-  @media (max-width: 480px) {
-    padding: 0.8rem 1.5rem;
-    font-size: 0.9rem;
-    width: 100%;
   }
 `;
 

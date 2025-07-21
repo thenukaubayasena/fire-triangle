@@ -19,7 +19,6 @@ const Training = () => {
       id: 1,
       title: "Basic Fire Safety Training",
       icon: <FaFireExtinguisher />,
-      duration: "4 hours",
       description: "Fundamental fire prevention, evacuation procedures, and extinguisher use training compliant with NFPA standards.",
       features: [
         "Fire triangle theory",
@@ -33,7 +32,6 @@ const Training = () => {
       id: 2,
       title: "Advanced Fire Warden Training",
       icon: <FaUserShield />,
-      duration: "8 hours",
       description: "Comprehensive training for designated safety officers with IFE(UK) certified instructors.",
       features: [
         "Emergency leadership",
@@ -47,7 +45,6 @@ const Training = () => {
       id: 3,
       title: "Industrial Fire Prevention",
       icon: <FaChalkboardTeacher />,
-      duration: "6 hours",
       description: "Specialized training for high-risk environments like those at Brandix and Litro Gas facilities.",
       features: [
         "Flammable material handling",
@@ -125,9 +122,6 @@ const Training = () => {
             >
               <CourseIcon>{course.icon}</CourseIcon>
               <CourseTitle>{course.title}</CourseTitle>
-              {/* <CourseDuration>
-                <FaClock /> {course.duration}
-              </CourseDuration> */}
               <CourseDescription>{course.description}</CourseDescription>
               
               <CourseFeatures>
@@ -416,57 +410,6 @@ const BenefitItem = styled.li`
   svg {
     color: #d32f2f;
     font-size: 1.2rem;
-  }
-`;
-
-const CorporateSection = styled(motion.section)`
-  text-align: center;
-  padding: 2rem;
-  background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%);
-  border-radius: 10px;
-  color: white;
-
-  h3 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-  }
-
-  p {
-    font-size: 1.1rem;
-    margin-bottom: 1.5rem;
-    opacity: 0.9;
-  }
-`;
-
-const CorporateFeatures = styled.ul`
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-
-  li {
-    background: rgba(255, 255, 255, 0.15);
-    padding: 0.8rem 1.5rem;
-    border-radius: 30px;
-    font-size: 1rem;
-  }
-`;
-
-const ContactButton = styled.button`
-  background: white;
-  color: #d32f2f;
-  border: none;
-  padding: 1rem 2rem;
-  border-radius: 5px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-
-  &:hover {
-    transform: translateY(-3px);
   }
 `;
 

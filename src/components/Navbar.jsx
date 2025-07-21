@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
-import { FaBars, FaTimes, FaPhoneAlt, FaChevronDown } from "react-icons/fa";
+import { FaBars, FaTimes, FaPhoneAlt } from "react-icons/fa";
 import { MdFireExtinguisher, MdSecurity, MdAssessment, MdSchool } from "react-icons/md";
 import logo from "../assets/logo.png";
 
@@ -299,102 +299,6 @@ const NavItem = styled(Link)`
     &::after {
       bottom: 5px;
     }
-  }
-`;
-
-// Dropdown components
-const DropdownContainer = styled.div`
-  position: relative;
-  display: inline-block;
-
-  @media (max-width: 768px) {
-    width: 100%;
-  }
-`;
-
-const DropdownButton = styled.div`
-  position: relative;
-  color: ${({ $isActive }) => ($isActive ? '#d32f2f' : '#333')};
-  font-weight: ${({ $isActive }) => ($isActive ? '600' : '500')};
-  font-size: 0.95rem;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 0;
-  cursor: pointer;
-
-  &:hover {
-    color: #d32f2f;
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: ${({ $isActive }) => ($isActive ? '100%' : '0')};
-    height: 2px;
-    background: #d32f2f;
-    transition: width 0.3s ease;
-  }
-
-  &:hover::after {
-    width: 100%;
-  }
-
-  svg {
-    transition: transform 0.3s ease;
-    transform: ${({ $isOpen }) => ($isOpen ? 'rotate(180deg)' : 'rotate(0)')};
-  }
-
-  @media (max-width: 768px) {
-    font-size: 1.1rem;
-    padding: 0.75rem 1.5rem;
-    width: 100%;
-    justify-content: center;
-  }
-`;
-
-const DropdownContent = styled.div`
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: white;
-  min-width: 200px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-  z-index: 1;
-  border-radius: 4px;
-  display: ${({ $isOpen }) => ($isOpen ? 'block' : 'none')};
-  animation: ${fadeIn} 0.3s ease-out;
-  overflow: hidden;
-
-  @media (max-width: 768px) {
-    position: static;
-    width: 100%;
-    box-shadow: none;
-    display: ${({ $isOpen }) => ($isOpen ? 'flex' : 'none')};
-    flex-direction: column;
-    background: #f9f9f9;
-  }
-`;
-
-const DropdownItem = styled(Link)`
-  color: ${({ $isActive }) => ($isActive ? '#d32f2f' : '#333')};
-  padding: 0.75rem 1rem;
-  text-decoration: none;
-  display: block;
-  transition: all 0.2s ease;
-  font-size: 0.9rem;
-  border-left: 3px solid ${({ $isActive }) => ($isActive ? '#d32f2f' : 'transparent')};
-
-  &:hover {
-    background: #f1f1f1;
-    color: #d32f2f;
-  }
-
-  @media (max-width: 768px) {
-    padding: 0.75rem 2rem;
   }
 `;
 

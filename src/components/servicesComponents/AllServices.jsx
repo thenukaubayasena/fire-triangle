@@ -5,20 +5,15 @@ import {
   FaFireExtinguisher, 
   FaBell, 
   FaShower, 
-  FaWind, 
-  FaGasPump,
   FaShieldAlt,
   FaUserGraduate,
   FaChartLine,
   FaPhoneAlt,
   FaCheck,
   FaTools,
-  FaWater,
-  FaFire,
-  FaCloud
+  FaWater
 } from "react-icons/fa";
-import { MdEngineering, MdSecurity, MdDesignServices } from "react-icons/md";
-import { GiSpray, GiChemicalDrop, GiGasMask } from "react-icons/gi";
+import { MdSecurity, MdDesignServices } from "react-icons/md";
 import servicesBg from "../../assets/services-bg.jpg";
 
 const AllServices = () => {
@@ -109,7 +104,7 @@ const AllServices = () => {
       brands: ["Howdy", "Evolution", "EVERSAFE"]
     },
     {
-      id: 6,
+      id: 5,
       title: "Security Systems",
       icon: <MdSecurity />,
       description: "Integrated security solutions to complement fire safety systems",
@@ -127,7 +122,7 @@ const AllServices = () => {
       brands: ["Hikvision", "Dahua", "Bosch", "Honeywell"]
     },
     {
-      id: 7,
+      id: 6,
       title: "Risk Management",
       icon: <FaChartLine />,
       description: "Comprehensive fire safety assessments and emergency planning services",
@@ -145,7 +140,7 @@ const AllServices = () => {
       brands: []
     },
     {
-      id: 8,
+      id: 7,
       title: "Training Programs",
       icon: <FaUserGraduate />,
       description: "Certified fire safety education for organizations of all sizes",
@@ -163,7 +158,7 @@ const AllServices = () => {
       brands: []
     },
     {
-      id: 9,
+      id: 8,
       title: "Design & Engineering",
       icon: <MdDesignServices />,
       description: "Professional fire protection system design and engineering services",

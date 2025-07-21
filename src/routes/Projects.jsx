@@ -1,8 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { motion, useAnimation, useInView } from "framer-motion";
-import { FaBuilding, FaShieldAlt, FaHotel, FaHospital, FaIndustry, FaSchool, FaMapMarkerAlt, FaQuoteLeft } from "react-icons/fa";
-import { MdApartment, MdFactory } from "react-icons/md";
+import { MdApartment } from "react-icons/md";
+import { FaHotel, FaIndustry, FaHospital, FaBuilding, FaSchool, FaStore, FaShieldAlt, FaMapMarkerAlt, FaCar, FaBolt, FaUtensils, FaFlask, FaMoneyBillWave, FaTools } from "react-icons/fa";
+import { GiMilkCarton } from "react-icons/gi";
+import { RiGovernmentFill } from "react-icons/ri";
+import { BsFillLightbulbFill } from "react-icons/bs";
 
 // Import placeholder project images (replace with actual project photos)
 import project1 from "../assets/projects/1.webp";
@@ -25,7 +28,7 @@ const Projects = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   const animation = useAnimation();
-  const [activeFilter, setActiveFilter] = useState("all");
+  const [activeFilter] = useState("all");
 
   useEffect(() => {
     if (isInView) {
@@ -34,10 +37,10 @@ const Projects = () => {
   }, [isInView, animation]);
 
   const clients = [
-    { name: "Dinapala Group", location: "No: 39, Cross Street, Kandy", category: "commercial" },
-    { name: "Indra Motor Spares (Pvt) Ltd", location: "No: 138, 140, D.S. Senanayaka Weediya, Kandy", category: "commercial" },
-    { name: "Indra Finance Ltd", location: "No: 187, Katugastota Road, Kandy", category: "commercial" },
-    { name: "Dinapala (Pvt) Ltd", location: "No: 63, Kings Street, Kandy", category: "commercial" },
+    { name: "Dinapala Group", location: "No: 39, Cross Street, Kandy", category: "retail" },
+    { name: "Indra Motor Spares (Pvt) Ltd", location: "No: 138, 140, D.S. Senanayaka Weediya, Kandy", category: "automotive" },
+    { name: "Indra Finance Ltd", location: "No: 187, Katugastota Road, Kandy", category: "finance" },
+    { name: "Dinapala (Pvt) Ltd", location: "No: 63, Kings Street, Kandy", category: "retail" },
     { name: "District General Hospital", location: "Monaragala", category: "healthcare" },
     { name: "Kegalle Pradesiya Sabawa", location: "Buluruppa, Hettimulla", category: "government" },
     { name: "Pradeshiya Sabawa", location: "Bulathkohupitiya", category: "government" },
@@ -46,30 +49,30 @@ const Projects = () => {
     { name: "Earl's Court (Pvt) Ltd", location: "Kandy", category: "hospitality" },
     { name: "Earl's Regency Hotel", location: "No: 40/1, Deveni Rajasinha Mw, Peradeniya, Kandy", category: "hospitality" },
     { name: "Earl's Court (Pvt) Ltd, Borkside Nature Resort", location: "Dumbbara Vally, Alkaduwa Road, Waththegama", category: "hospitality" },
-    { name: "Hela Clothing (Pvt) Ltd", location: "Arangala, Naula", category: "industrial" },
+    { name: "Hela Clothing (Pvt) Ltd", location: "Arangala, Naula", category: "manufacturing" },
     { name: "The Deer Park Hotel", location: "Girithale", category: "hospitality" },
     { name: "Advance Technical College", location: "Kandy", category: "education" },
-    { name: "National Water Supply and Drainage Board", location: "Badulla", category: "government" },
-    { name: "Hydro Power Station", location: "Ukuwela", category: "industrial" },
-    { name: "Syrex Hi-Tec Power Co. Ltd", location: "Colombo", category: "industrial" },
-    { name: "Bisma Buscuits", location: "Ukuwela", category: "industrial" },
-    { name: "Sporting Times", location: "Kandy", category: "commercial" },   
-    { name: "Milco (Pvt) Ltd", location: "Digana", category: "industrial" },
-    { name: "Rainco", location: "Kadugannawa", category: "industrial" },
-    { name: "Norwood Fashions", location: "Wallawa", category: "commercial" },
+    { name: "National Water Supply and Drainage Board", location: "Badulla", category: "utilities" },
+    { name: "Hydro Power Station", location: "Ukuwela", category: "energy" },
+    { name: "Syrex Hi-Tec Power Co. Ltd", location: "Colombo", category: "energy" },
+    { name: "Bisma Buscuits", location: "Ukuwela", category: "food & beverage" },
+    { name: "Sporting Times", location: "Kandy", category: "retail" },
+    { name: "Milco (Pvt) Ltd", location: "Digana", category: "dairy" },
+    { name: "Rainco", location: "Kadugannawa", category: "manufacturing" },
+    { name: "Norwood Fashions", location: "Wallawa", category: "retail" },
     { name: "University of Peradeniya", location: "Peradeniya", category: "education" },
-    { name: "Lanka Automated Filling Station", location: "Kegalle", category: "industrial" },
-    { name: "Siyarata Ayurweda Hospital", location: "Pallekale", category: "industrial" },
-    { name: "CIB Group", location: "Sri Lanka", category: "industrial" },
-    { name: "CARS Body Shop", location: "Kandy", category: "education" },
-    { name: "Hela Clothing (Pvt) Ltd", location: "Naula", category: "industrial" },
-    { name: "Lakro Packaging Industries (Pvt) Ltd", location: "Nittambuwa", category: "industrial" },
-    { name: "RAN Holdings (Pvt) Ltd", location: "Kandy", category: "industrial" },
+    { name: "Lanka Automated Filling Station", location: "Kegalle", category: "energy" },
+    { name: "Siyarata Ayurweda Hospital", location: "Pallekale", category: "healthcare" },
+    { name: "CIB Group", location: "Sri Lanka", category: "retail" },
+    { name: "CARS Body Shop", location: "Kandy", category: "automotive" },
+    { name: "Hela Clothing (Pvt) Ltd", location: "Naula", category: "manufacturing" },
+    { name: "Lakro Packaging Industries (Pvt) Ltd", location: "Nittambuwa", category: "manufacturing" },
+    { name: "RAN Holdings (Pvt) Ltd", location: "Kandy", category: "construction" },
     { name: "Hotel Nilakma Lagoon", location: "Negambo", category: "hospitality" },
-    { name: "Habib Bank Limited (HBL)", location: "Colombo", category: "commercial" },
-    { name: "Heaven Breeze Hotel", location: "Ella", category: "education" },
-    { name: "Serandib Signature Resort", location: "Rajawella", category: "industrial" },
-    { name: "China Sri Lanka Joint Research and Demonstration Center for Water Technology", location: "Peradeniya", category: "industrial" },
+    { name: "Habib Bank Limited (HBL)", location: "Colombo", category: "finance" },
+    { name: "Heaven Breeze Hotel", location: "Ella", category: "hospitality" },
+    { name: "Serandib Signature Resort", location: "Rajawella", category: "hospitality" },
+    { name: "China Sri Lanka Joint Research and Demonstration Center for Water Technology", location: "Peradeniya", category: "research" }
   ];
 
   const projects = [
@@ -104,23 +107,21 @@ const Projects = () => {
       case "hospitality": return <FaHotel />;
       case "industrial": return <FaIndustry />;
       case "healthcare": return <FaHospital />;
-      case "government": return <FaBuilding />;
+      case "government": return <RiGovernmentFill />;
       case "education": return <FaSchool />;
       case "commercial": return <FaBuilding />;
+      case "retail": return <FaStore />;
+      case "finance": return <FaMoneyBillWave />;
+      case "automotive": return <FaCar />;
+      case "utilities": return <BsFillLightbulbFill />;
+      case "energy": return <FaBolt />;
+      case "food & beverage": return <FaUtensils />;
+      case "dairy": return <GiMilkCarton />;
+      case "construction": return <FaTools />;
+      case "research": return <FaFlask />;
       default: return <FaBuilding />;
     }
   };
-
-  const categoryFilters = [
-    { id: "all", name: "All Categories" },
-    { id: "residential", name: "Residential" },
-    { id: "commercial", name: "Commercial" },
-    { id: "industrial", name: "Industrial" },
-    { id: "government", name: "Government" },
-    { id: "hospitality", name: "Hospitality" },
-    { id: "healthcare", name: "Healthcare" },
-    { id: "education", name: "Education" }
-  ];
 
   return (
     <ProjectsContainer>

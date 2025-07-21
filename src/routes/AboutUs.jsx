@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import { 
   FaShieldAlt, 
-  FaUsers, 
   FaHistory, 
   FaFireExtinguisher, 
   FaChartLine,
@@ -11,7 +10,6 @@ import {
   FaHandshake,
   FaLightbulb,
   FaUserShield,
-  FaPhoneAlt,
   FaFirstAid,
   FaCar,
   FaGraduationCap
