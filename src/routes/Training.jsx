@@ -71,6 +71,7 @@ const Training = () => {
     <TrainingContainer>
       {/* Hero Section */}
       <HeroSection>
+        <HeroOverlay />
         <HeroContent>
           <motion.h1
             initial={{ opacity: 0, y: 50 }}
@@ -165,29 +166,6 @@ const Training = () => {
           </BenefitsList>
         </BenefitsSection>
 
-        {/* Corporate Training */}
-        {/* <CorporateSection
-          variants={{
-            hidden: { opacity: 0, y: 50 },
-            visible: { opacity: 1, y: 0 },
-          }}
-          initial="hidden"
-          animate={animation}
-          transition={{ duration: 0.6, delay: 0.8 }}
-        >
-          <h3>Custom Corporate Programs</h3>
-          <p>
-            Like we provided for Rockland Pvt Ltd and Brandix, we design training specific to your:
-          </p>
-          <CorporateFeatures>
-            <li>Facility layout</li>
-            <li>Industry risks</li>
-            <li>Staff schedules</li>
-            <li>Equipment types</li>
-          </CorporateFeatures>
-          <ContactButton>Request Custom Training</ContactButton>
-        </CorporateSection> */}
-
         {/* Consultation CTA */}
         <ConsultationCTA
           variants={{
@@ -222,7 +200,7 @@ const TrainingContainer = styled.div`
 
 const HeroSection = styled.section`
   position: relative;
-  height: 60vh;
+  height: 65vh;
   min-height: 500px;
   display: flex;
   align-items: center;
@@ -232,29 +210,72 @@ const HeroSection = styled.section`
               url('https://images.unsplash.com/photo-1523861751938-121b5323b48b?q=80&w=2062&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
   background-size: cover;
   background-position: center;
+  padding: 0 2rem;
+  opacity: 0.9;
+
+  @media (max-width: 768px) {
+    height: 70vh;
+    min-height: 400px;
+  }
+`;
+
+const HeroOverlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(211, 47, 47, 0.2);
+  z-index: 1;
+`;
+
+const HeroContent = styled.div`
+  position: relative;
+  z-index: 2;
+  max-width: 1000px;
   color: white;
 
   h1 {
     font-size: clamp(2rem, 5vw, 3.5rem);
     margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-weight: 700;
+    line-height: 1.2;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
   }
 
   p {
-    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    font-size: clamp(1rem, 2vw, 1.4rem);
     opacity: 0.9;
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+  }
+
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 1.8rem;
+    }
+    p {
+      font-size: 1rem;
+    }
   }
 `;
 
-const HeroContent = styled.div`
-  max-width: 800px;
-  padding: 0 2rem;
-`;
-
 const MainContent = styled(motion.div)`
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 4rem 2rem;
+
+  @media (max-width: 1024px) {
+    padding: 3rem 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    padding: 2.5rem 1rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 2rem 0.8rem;
+  }
 `;
 
 const IntroSection = styled(motion.section)`

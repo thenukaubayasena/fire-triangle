@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import styled from "styled-components";
-import { FaBars, FaTimes, FaPhoneAlt } from "react-icons/fa";
+import styled, { keyframes } from "styled-components";
+import { FaBars, FaTimes, FaPhoneAlt, FaChevronDown } from "react-icons/fa";
 import { MdFireExtinguisher, MdSecurity, MdAssessment, MdSchool } from "react-icons/md";
 import logo from "../assets/logo.png";
 
@@ -9,87 +9,166 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeTab, setActiveTab] = useState("home");
   const [scrolled, setScrolled] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(null);
   const location = useLocation();
 
   useEffect(() => {
-    // Close mobile menu when navigating
     setIsOpen(false);
+    setDropdownOpen(null);
     
-    // Set active tab based on pathname
     const path = location.pathname.split('/')[1] || 'home';
     setActiveTab(path);
 
-    // Handle scroll effect
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
     };
+    
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [location.pathname]);
 
   const toggleMenu = () => setIsOpen(!isOpen);
+  
+  const toggleDropdown = (menu) => {
+    setDropdownOpen(dropdownOpen === menu ? null : menu);
+  };
+
+  // Sample dropdown items
+  const servicesItems = [
+    { name: "Fire Safety Audits", path: "/services/audits" },
+    { name: "Equipment Installation", path: "/services/installation" },
+    { name: "Maintenance Services", path: "/services/maintenance" },
+  ];
 
   return (
-    <NavContainer $scrolled={scrolled}>
-      <LogoContainer>
-        <LogoLink to="/">
-          <Logo src={logo} alt="Fire Triangle Logo" loading="lazy" />
-          <CompanyName $scrolled={scrolled}>Fire Triangle Fire & Safety Service</CompanyName>
-        </LogoLink>
-      </LogoContainer>
+    <>
+      <TopBar>
+        <ContactInfo>
+          <span><FaPhoneAlt /> +94 767 565 634</span>
+          <span>firetrianglekeg@gmail.com</span>
+        </ContactInfo>
+        <SocialLinks>
+          <a href="https://www.facebook.com/profile.php?id=61575131331788" aria-label="Facebook">Facebook</a>
+        </SocialLinks>
+      </TopBar>
+      
+      <NavContainer $scrolled={scrolled}>
+        <LogoContainer>
+          <LogoLink to="/">
+            <Logo src={logo} alt="Fire Triangle Logo" loading="lazy" />
+            <CompanyName $scrolled={scrolled}>
+              <span>Fire Triangle</span>
+              <span>Fire & Safety Service</span>
+            </CompanyName>
+          </LogoLink>
+        </LogoContainer>
 
-      <Hamburger onClick={toggleMenu} aria-label="Toggle menu">
-        {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
-      </Hamburger>
+        <Hamburger onClick={toggleMenu} aria-label="Toggle menu">
+          {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+        </Hamburger>
 
-      <NavMenu isOpen={isOpen}>
-        <NavItem to="/" $isActive={activeTab === "home"}>
-          Home
-        </NavItem>
-        <NavItem to="/about-us" $isActive={activeTab === "about-us"}>
-          About Us
-        </NavItem>
-        <NavItem to="/services" $isActive={activeTab === "services"}>
-          <MdFireExtinguisher /> Services
-        </NavItem>
-        <NavItem to="/products" $isActive={activeTab === "products"}>
-          <MdSecurity /> Products
-        </NavItem>
-        <NavItem to="/projects" $isActive={activeTab === "projects"}>
-          <MdAssessment /> Projects
-        </NavItem>
-        <NavItem to="/training" $isActive={activeTab === "training"}>
-          <MdSchool /> Training
-        </NavItem>
-        
-        <EmergencyContact href="tel:+94767565634">
-          <FaPhoneAlt /> Hotline
-        </EmergencyContact>
-      </NavMenu>
+        <NavMenu isOpen={isOpen}>
+          <NavItem to="/" $isActive={activeTab === "home"}>
+            Home
+          </NavItem>
+          
+          <NavItem to="/about-us" $isActive={activeTab === "about-us"}>
+            About Us
+          </NavItem>
 
-      <Overlay isOpen={isOpen} onClick={toggleMenu} />
-    </NavContainer>
+          <NavItem to="/services" $isActive={activeTab === "services"}>
+            <MdFireExtinguisher /> Services
+          </NavItem>
+          
+          <NavItem to="/products" $isActive={activeTab === "products"}>
+            <MdSecurity /> Products
+          </NavItem>
+          
+          <NavItem to="/projects" $isActive={activeTab === "projects"}>
+            <MdAssessment /> Projects
+          </NavItem>
+          
+          <NavItem to="/training" $isActive={activeTab === "training"}>
+            <MdSchool /> Training
+          </NavItem>
+          
+          <EmergencyContact href="tel:+94767565634">
+            <FaPhoneAlt /> Hotline
+          </EmergencyContact>
+        </NavMenu>
+
+        <Overlay isOpen={isOpen} onClick={toggleMenu} />
+      </NavContainer>
+    </>
   );
 };
 
-// Enhanced Styled Components
+// Animations
+const fadeIn = keyframes`
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+`;
+
+// Top bar with contact info
+const TopBar = styled.div`
+  background: #2a2a2a;
+  color: white;
+  padding: 0.5rem 5%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+const ContactInfo = styled.div`
+  display: flex;
+  gap: 1.5rem;
+
+  span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+`;
+
+const SocialLinks = styled.div`
+  display: flex;
+  gap: 1rem;
+
+  a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+
+    &:hover {
+      color: #d32f2f;
+    }
+  }
+`;
+
+// Main Navbar
 const NavContainer = styled.nav`
   position: fixed;
-  top: 0;
+  top: ${props => props.$scrolled ? '0' : '30px'};
   left: 0;
   right: 0;
   height: ${props => props.$scrolled ? '70px' : '80px'};
-  background: ${props => props.$scrolled ? 'rgba(42, 42, 42, 0.98)' : '#2a2a2a'};
+  background: ${props => props.$scrolled ? 'rgba(255, 255, 255, 0.98)' : '#ffffff'};
   backdrop-filter: blur(10px);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 5%;
   z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
+  border-bottom: 1px solid #eee;
 
   @media (max-width: 768px) {
+    top: 0;
     height: 70px;
     padding: 0 1rem;
   }
@@ -109,33 +188,43 @@ const LogoLink = styled(Link)`
 `;
 
 const Logo = styled.img`
-  height: ${props => props.$scrolled ? '35px' : '40px'};
+  height: ${props => props.$scrolled ? '45px' : '50px'};
   width: auto;
   transition: all 0.3s ease;
-  // filter: brightness(0) invert(1);
 
   &:hover {
     transform: scale(1.05);
   }
 
   @media (max-width: 768px) {
-    height: ${props => props.$scrolled ? '30px' : '35px'};
+    height: ${props => props.$scrolled ? '35px' : '40px'};
   }
 `;
 
-const CompanyName = styled.span`
-  color: white;
+const CompanyName = styled.div`
+  display: flex;
+  flex-direction: column;
+  color: #333;
   font-weight: 600;
-  font-size: ${props => props.$scrolled ? '1.1rem' : '1.25rem'};
+  font-size: ${props => props.$scrolled ? '0.9rem' : '1rem'};
   transition: all 0.3s ease;
-  white-space: nowrap;
+  line-height: 1.2;
+
+  span:first-child {
+    font-size: ${props => props.$scrolled ? '1.1rem' : '1.2rem'};
+    font-weight: 700;
+  }
 
   @media (max-width: 768px) {
-    font-size: ${props => props.$scrolled ? '1rem' : '1.1rem'};
+    font-size: ${props => props.$scrolled ? '0.8rem' : '0.9rem'};
+    
+    span:first-child {
+      font-size: ${props => props.$scrolled ? '1rem' : '1.1rem'};
+    }
   }
 
   @media (max-width: 480px) {
-    display: ${props => props.$scrolled ? 'none' : 'block'};
+    display: ${props => props.$scrolled ? 'none' : 'flex'};
   }
 `;
 
@@ -154,21 +243,22 @@ const NavMenu = styled.div`
     right: ${({ isOpen }) => (isOpen ? '0' : '-100%')};
     width: min(320px, 85%);
     height: 100vh;
-    background: #2a2a2a;
+    background: #ffffff;
     flex-direction: column;
     justify-content: flex-start;
-    padding-top: 5rem;
+    padding-top: 6rem;
     gap: 1.5rem;
     transition: right 0.3s ease-in-out;
     z-index: 1000;
     box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
   }
 `;
 
 const NavItem = styled(Link)`
   position: relative;
-  color: ${({ $isActive }) => ($isActive ? '#d32f2f' : 'white')};
-  font-weight: ${({ $isActive }) => ($isActive ? '600' : '400')};
+  color: ${({ $isActive }) => ($isActive ? '#d32f2f' : '#333')};
+  font-weight: ${({ $isActive }) => ($isActive ? '600' : '500')};
   text-decoration: none;
   font-size: 0.95rem;
   transition: all 0.3s ease;
@@ -212,6 +302,102 @@ const NavItem = styled(Link)`
   }
 `;
 
+// Dropdown components
+const DropdownContainer = styled.div`
+  position: relative;
+  display: inline-block;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+`;
+
+const DropdownButton = styled.div`
+  position: relative;
+  color: ${({ $isActive }) => ($isActive ? '#d32f2f' : '#333')};
+  font-weight: ${({ $isActive }) => ($isActive ? '600' : '500')};
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+  cursor: pointer;
+
+  &:hover {
+    color: #d32f2f;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: ${({ $isActive }) => ($isActive ? '100%' : '0')};
+    height: 2px;
+    background: #d32f2f;
+    transition: width 0.3s ease;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+
+  svg {
+    transition: transform 0.3s ease;
+    transform: ${({ $isOpen }) => ($isOpen ? 'rotate(180deg)' : 'rotate(0)')};
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1.1rem;
+    padding: 0.75rem 1.5rem;
+    width: 100%;
+    justify-content: center;
+  }
+`;
+
+const DropdownContent = styled.div`
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  min-width: 200px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  z-index: 1;
+  border-radius: 4px;
+  display: ${({ $isOpen }) => ($isOpen ? 'block' : 'none')};
+  animation: ${fadeIn} 0.3s ease-out;
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    position: static;
+    width: 100%;
+    box-shadow: none;
+    display: ${({ $isOpen }) => ($isOpen ? 'flex' : 'none')};
+    flex-direction: column;
+    background: #f9f9f9;
+  }
+`;
+
+const DropdownItem = styled(Link)`
+  color: ${({ $isActive }) => ($isActive ? '#d32f2f' : '#333')};
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  display: block;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+  border-left: 3px solid ${({ $isActive }) => ($isActive ? '#d32f2f' : 'transparent')};
+
+  &:hover {
+    background: #f1f1f1;
+    color: #d32f2f;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0.75rem 2rem;
+  }
+`;
+
 const EmergencyContact = styled.a`
   background: #d32f2f;
   color: white;
@@ -225,10 +411,12 @@ const EmergencyContact = styled.a`
   transition: all 0.3s ease;
   font-size: 0.9rem;
   min-height: 40px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 
   &:hover {
     background: #b71c1c;
     transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
   }
 
   @media (max-width: 992px) {
@@ -249,7 +437,7 @@ const Hamburger = styled.button`
   display: none;
   cursor: pointer;
   z-index: 1001;
-  color: white;
+  color: #333;
   background: transparent;
   border: none;
   padding: 0.5rem;
@@ -270,7 +458,7 @@ const Overlay = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.3);
   z-index: 999;
   opacity: ${({ isOpen }) => (isOpen ? '1' : '0')};
   visibility: ${({ isOpen }) => (isOpen ? 'visible' : 'hidden')};
