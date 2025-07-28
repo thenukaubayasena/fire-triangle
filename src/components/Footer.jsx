@@ -140,7 +140,7 @@ const LogoContainer = styled.div`
 const Logo = styled.img`
   max-width: 200px;
   height: auto;
-  filter: brightness(0) invert(1);
+  // filter: brightness(0) invert(1);
   
   @media (max-width: 480px) {
     max-width: 180px;
