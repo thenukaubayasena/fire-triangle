@@ -223,9 +223,9 @@ const CompanyName = styled.div`
     }
   }
 
-  @media (max-width: 480px) {
-    display: ${props => props.$scrolled ? 'none' : 'flex'};
-  }
+  // @media (max-width: 480px) {
+  //   display: ${props => props.$scrolled ? 'none' : 'flex'};
+  // }
 `;
 
 const NavMenu = styled.div`
