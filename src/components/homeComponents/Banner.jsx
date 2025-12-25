@@ -69,7 +69,7 @@ const Banner = () => {
         >
           <a href="tel:+94767565634" style={{ textDecoration: 'none', width: '100%', maxWidth: '300px' }}>
             <PrimaryCTA whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <FaPhoneAlt /> Hotline
+              <FaPhoneAlt /> Emergency Hotline
             </PrimaryCTA>
           </a>
 
@@ -124,7 +124,7 @@ const Banner = () => {
   );
 };
 
-// Styled Components
+// Styled Components - UPDATED FOR BETTER MOBILE RESPONSIVENESS
 const HeroContainer = styled.section`
   position: relative;
   width: 100%;
@@ -133,26 +133,32 @@ const HeroContainer = styled.section`
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  padding: 100px 6% 60px; /* Adjusted top padding for header overlap */
+  padding: 100px 6% 60px;
   isolation: isolate;
 
-  @media (min-width: 1200px) {
-    padding: 120px 7% 80px;
-  }
-
-  @media (max-width: 1024px) {
-    min-height: 700px;
+  @media (max-width: 1200px) {
+    min-height: 90vh;
     padding: 100px 5% 50px;
   }
 
+  @media (max-width: 1024px) {
+    min-height: 80vh;
+    padding: 90px 4% 40px;
+  }
+
   @media (max-width: 768px) {
-    min-height: 600px;
-    padding: 80px 4% 40px;
+    min-height: 70vh;
+    padding: 80px 4% 30px;
   }
 
   @media (max-width: 480px) {
-    min-height: 500px;
-    padding: 70px 3% 30px;
+    min-height: 85vh;
+    padding: 70px 3% 20px;
+  }
+
+  @media (max-width: 380px) {
+    min-height: 90vh;
+    padding: 60px 2% 15px;
   }
 `;
 
@@ -161,15 +167,19 @@ const BackgroundImage = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   z-index: -2;
-  filter: brightness(0.65); /* Slightly darker for better contrast */
+  filter: brightness(0.65);
 
+  /* Mobile-specific optimizations */
   @media (max-width: 768px) {
-    object-position: 60% center;
+    object-position: center center;
   }
 
+  /* For very small devices */
   @media (max-width: 480px) {
-    object-position: 65% center;
+    object-fit: cover;
+    object-position: center center;
   }
 `;
 
@@ -179,10 +189,19 @@ const BackgroundOverlay = styled.div`
   height: 100%;
   background: linear-gradient(
     135deg,
-    rgba(211, 47, 47, 0.2) 0%,
-    rgba(0, 0, 0, 0.75) 100%
+    rgba(211, 47, 47, 0.25) 0%,
+    rgba(0, 0, 0, 0.85) 100%
   );
   z-index: -1;
+  
+  /* Stronger overlay for mobile for better text readability */
+  @media (max-width: 768px) {
+    background: linear-gradient(
+      135deg,
+      rgba(211, 47, 47, 0.2) 0%,
+      rgba(0, 0, 0, 0.9) 100%
+    );
+  }
 `;
 
 const ContentWrapper = styled.div`
@@ -199,7 +218,6 @@ const ContentWrapper = styled.div`
 
   @media (max-width: 1024px) {
     gap: 1.2rem;
-    padding: 15px 0;
   }
 
   @media (max-width: 768px) {
@@ -209,7 +227,11 @@ const ContentWrapper = styled.div`
 
   @media (max-width: 480px) {
     gap: 0.8rem;
-    padding: 5px 0;
+    padding: 0;
+  }
+
+  @media (max-width: 380px) {
+    gap: 0.6rem;
   }
 `;
 
@@ -221,27 +243,36 @@ const Tagline = styled(motion.div)`
   letter-spacing: 2px;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.6rem;
   margin-bottom: 0.5rem;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   padding: 0.5rem 1rem;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.4);
   border-radius: 4px;
-  z-index: 4; /* Ensure tagline is above other content */
+  flex-wrap: wrap;
 
   @media (max-width: 768px) {
-    font-size: clamp(0.8rem, 1.8vw, 1rem);
+    font-size: clamp(0.8rem, 1.5vw, 1rem);
     letter-spacing: 1.5px;
     padding: 0.4rem 0.8rem;
+    gap: 0.5rem;
+    margin-bottom: 0.3rem;
   }
 
   @media (max-width: 480px) {
-    font-size: clamp(0.7rem, 1.6vw, 0.9rem);
-    letter-spacing: 1.2px;
+    font-size: clamp(0.75rem, 1.2vw, 0.9rem);
+    letter-spacing: 1px;
     gap: 0.4rem;
+    padding: 0.35rem 0.7rem;
+    line-height: 1.3;
+    text-align: center;
+    width: 95%;
+  }
+
+  @media (max-width: 380px) {
+    font-size: 0.7rem;
     padding: 0.3rem 0.6rem;
-    flex-wrap: wrap;
-    justify-content: center;
   }
 `;
 
@@ -250,15 +281,19 @@ const MainHeading = styled.div`
   flex-direction: column;
   gap: 0.4rem;
   margin-bottom: 1rem;
+  width: 100%;
+  padding: 0 10px;
 
   @media (max-width: 768px) {
     gap: 0.3rem;
     margin-bottom: 0.8rem;
+    padding: 0 5px;
   }
 
   @media (max-width: 480px) {
     gap: 0.2rem;
     margin-bottom: 0.6rem;
+    padding: 0;
   }
 `;
 
@@ -270,6 +305,8 @@ const AnimatedLine = styled(motion.h1)`
   color: #fff;
   text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   font-size: clamp(2.2rem, 5vw, 4.2rem);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
   
   &:first-child {
     margin-bottom: 0.4rem;
@@ -281,10 +318,16 @@ const AnimatedLine = styled(motion.h1)`
 
   @media (max-width: 768px) {
     font-size: clamp(1.8rem, 4vw, 3rem);
+    line-height: 1.1;
   }
 
   @media (max-width: 480px) {
-    font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+    font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+    line-height: 1.05;
+  }
+
+  @media (max-width: 380px) {
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
   }
 `;
 
@@ -329,13 +372,20 @@ const CTAWrap = styled(motion.div)`
   @media (max-width: 768px) {
     gap: 1rem;
     margin-top: 1.2rem;
+    padding: 0 10px;
   }
 
   @media (max-width: 480px) {
     flex-direction: column;
     align-items: center;
     gap: 0.8rem;
+    margin-top: 1rem;
     padding: 0 10px;
+  }
+
+  @media (max-width: 380px) {
+    gap: 0.6rem;
+    margin-top: 0.8rem;
   }
 `;
 
@@ -348,24 +398,31 @@ const BaseCTA = styled(motion.button)`
   cursor: pointer;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.6rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   text-transform: uppercase;
   letter-spacing: 1px;
   width: 100%;
-  justify-content: center;
   max-width: 300px;
   transition: all 0.3s ease;
 
   @media (max-width: 768px) {
     padding: 0.9rem 1.8rem;
     max-width: 260px;
+    font-size: clamp(0.9rem, 1.8vw, 1rem);
   }
 
   @media (max-width: 480px) {
     padding: 0.8rem 1.5rem;
     max-width: 100%;
-    font-size: clamp(0.85rem, 1.8vw, 1rem);
+    font-size: clamp(0.85rem, 1.6vw, 0.95rem);
+    min-height: 50px;
+  }
+
+  @media (max-width: 380px) {
+    padding: 0.7rem 1.2rem;
+    min-height: 45px;
   }
 `;
 
@@ -396,7 +453,7 @@ const StatsWrapper = styled(motion.div)`
   margin-top: 2rem;
   flex-wrap: wrap;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6);
   padding: 1.5rem 2rem;
   border-radius: 10px;
   backdrop-filter: blur(6px);
@@ -413,13 +470,21 @@ const StatsWrapper = styled(motion.div)`
     gap: 1.2rem;
     padding: 1rem 1.2rem;
     margin-top: 1.5rem;
+    max-width: 95%;
   }
 
   @media (max-width: 480px) {
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.8rem;
+    padding: 1rem;
+    margin-top: 1.2rem;
+    width: 100%;
+  }
+
+  @media (max-width: 380px) {
     padding: 0.8rem;
-    width: 95%;
+    margin-top: 1rem;
+    gap: 0.6rem;
   }
 `;
 
@@ -429,9 +494,14 @@ const StatItem = styled(motion.div)`
   align-items: center;
   min-width: 100px;
 
+  @media (max-width: 768px) {
+    min-width: 80px;
+  }
+
   @media (max-width: 480px) {
     min-width: auto;
     width: 100%;
+    padding: 0.2rem 0;
   }
 `;
 
@@ -450,6 +520,10 @@ const StatNumber = styled.span`
   @media (max-width: 480px) {
     font-size: clamp(1.4rem, 3vw, 2rem);
   }
+
+  @media (max-width: 380px) {
+    font-size: clamp(1.3rem, 2.8vw, 1.8rem);
+  }
 `;
 
 const StatLabel = styled.p`
@@ -459,9 +533,14 @@ const StatLabel = styled.p`
   letter-spacing: 1px;
   font-weight: 500;
   margin: 0;
+  text-align: center;
 
   @media (max-width: 480px) {
     font-size: clamp(0.7rem, 1.6vw, 0.85rem);
+  }
+
+  @media (max-width: 380px) {
+    font-size: clamp(0.65rem, 1.5vw, 0.8rem);
   }
 `;
 
@@ -470,9 +549,18 @@ const StatDivider = styled.div`
   height: 40px;
   background: rgba(255, 255, 255, 0.25);
 
+  @media (max-width: 768px) {
+    height: 35px;
+  }
+
   @media (max-width: 480px) {
-    width: 80px;
+    width: 60px;
     height: 1px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 380px) {
+    width: 50px;
   }
 `;
 
