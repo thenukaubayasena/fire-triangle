@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
-import fireSafetyBg from "../../assets/fire-safety-banner.jpeg";
+import fireSafetyBg from "../../assets/fire background.jpg";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { FaPhoneAlt, FaShieldAlt, FaFireExtinguisher } from "react-icons/fa";
 

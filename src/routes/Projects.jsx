@@ -9,8 +9,7 @@ import { BsFillLightbulbFill } from "react-icons/bs";
 
 // Import placeholder project images (replace with actual project photos)
 import project1 from "../assets/projects/1.webp";
-import project2 from "../assets/projects/2.webp";
-import project3 from "../assets/projects/3.webp";
+import project2 from "../assets/projects/2.jpeg";
 import project4 from "../assets/projects/4.webp";
 import project5 from "../assets/projects/5.webp";
 import project6 from "../assets/projects/6.webp";
@@ -18,11 +17,9 @@ import project7 from "../assets/projects/7.webp";
 import project8 from "../assets/projects/8.webp";
 import project9 from "../assets/projects/9.webp";
 import project10 from "../assets/projects/10.webp";
-import project11 from "../assets/projects/11.webp";
 import project12 from "../assets/projects/12.webp";
 import project13 from "../assets/projects/18.webp";
 import project14 from "../assets/projects/19.jpg";
-import project15 from "../assets/projects/21.webp";
 
 const Projects = () => {
   const ref = useRef(null);
@@ -37,22 +34,14 @@ const Projects = () => {
   }, [isInView, animation]);
 
   const clients = [
-    { name: "Dinapala Group", location: "No: 39, Cross Street, Kandy", category: "retail" },
-    { name: "Indra Motor Spares (Pvt) Ltd", location: "No: 138, 140, D.S. Senanayaka Weediya, Kandy", category: "automotive" },
-    { name: "Indra Finance Ltd", location: "No: 187, Katugastota Road, Kandy", category: "finance" },
-    { name: "Dinapala (Pvt) Ltd", location: "No: 63, Kings Street, Kandy", category: "retail" },
     { name: "District General Hospital", location: "Monaragala", category: "healthcare" },
     { name: "Kegalle Pradesiya Sabawa", location: "Buluruppa, Hettimulla", category: "government" },
     { name: "Pradeshiya Sabawa", location: "Bulathkohupitiya", category: "government" },
     { name: "Galigamuwa Pradesiya Sabawa", location: "Pitagaldeniya", category: "government" },
-    { name: "Udarata Development Authority Of Sri Lanka", location: "No: 1120, Gatambe, Peradeniya", category: "government" },
     { name: "Earl's Court (Pvt) Ltd", location: "Kandy", category: "hospitality" },
     { name: "Earl's Regency Hotel", location: "No: 40/1, Deveni Rajasinha Mw, Peradeniya, Kandy", category: "hospitality" },
-    { name: "Earl's Court (Pvt) Ltd, Borkside Nature Resort", location: "Dumbbara Vally, Alkaduwa Road, Waththegama", category: "hospitality" },
-    { name: "Hela Clothing (Pvt) Ltd", location: "Arangala, Naula", category: "manufacturing" },
     { name: "The Deer Park Hotel", location: "Girithale", category: "hospitality" },
     { name: "Advance Technical College", location: "Kandy", category: "education" },
-    { name: "National Water Supply and Drainage Board", location: "Badulla", category: "utilities" },
     { name: "Hydro Power Station", location: "Ukuwela", category: "energy" },
     { name: "Syrex Hi-Tec Power Co. Ltd", location: "Colombo", category: "energy" },
     { name: "Bisma Buscuits", location: "Ukuwela", category: "food & beverage" },
@@ -60,25 +49,42 @@ const Projects = () => {
     { name: "Milco (Pvt) Ltd", location: "Digana", category: "dairy" },
     { name: "Rainco", location: "Kadugannawa", category: "manufacturing" },
     { name: "Norwood Fashions", location: "Wallawa", category: "retail" },
-    { name: "University of Peradeniya", location: "Peradeniya", category: "education" },
     { name: "Lanka Automated Filling Station", location: "Kegalle", category: "energy" },
     { name: "Siyarata Ayurweda Hospital", location: "Pallekale", category: "healthcare" },
     { name: "CIB Group", location: "Sri Lanka", category: "retail" },
     { name: "CARS Body Shop", location: "Kandy", category: "automotive" },
-    { name: "Hela Clothing (Pvt) Ltd", location: "Naula", category: "manufacturing" },
     { name: "Lakro Packaging Industries (Pvt) Ltd", location: "Nittambuwa", category: "manufacturing" },
     { name: "RAN Holdings (Pvt) Ltd", location: "Kandy", category: "construction" },
-    { name: "Hotel Nilakma Lagoon", location: "Negambo", category: "hospitality" },
+    { name: "Hotel Nilakma Lagoon", location: "Negombo", category: "hospitality" },
     { name: "Habib Bank Limited (HBL)", location: "Colombo", category: "finance" },
     { name: "Heaven Breeze Hotel", location: "Ella", category: "hospitality" },
     { name: "Serandib Signature Resort", location: "Rajawella", category: "hospitality" },
-    { name: "China Sri Lanka Joint Research and Demonstration Center for Water Technology", location: "Peradeniya", category: "research" }
+    { name: "China Sri Lanka Joint Research and Demonstration Center for Water Technology", location: "Peradeniya", category: "research" },
+
+    // Newly added entries
+    { name: "Vito Wood Fired Pizza", location: "Kandy", category: "food & beverage" },
+    { name: "Rossli Holding Pvt Ltd", location: "Lakshapana", category: "manufacturing" },
+    { name: "Earl's Reef", location: "Beruwala", category: "hospitality" },
+    { name: "City Hotel", location: "Kandy", category: "hospitality" },
+    { name: "Nawaloka College of Higher Studies (NCHS)", location: "Kandy", category: "education" },
+    { name: "Casamara Hotel", location: "Kandy", category: "hospitality" },
+    { name: "Udam Furniture", location: "Galigamuwa Industrial Zone", category: "manufacturing" },
+    { name: "Sri Lanka Energies (Pvt) Ltd", location: "Galigamuwa Industrial Zone", category: "energy" },
+    { name: "Sanasa Bank", location: "Atala / Ruwanwella / Deraniyagala", category: "finance" },
+    { name: "Health Recon", location: "Kandy", category: "healthcare" },
+    { name: "Sleek Hotel", location: "Kegalle", category: "hospitality" },
+    { name: "Pinnalanda Hotel", location: "Pinnawala", category: "hospitality" },
+    { name: "Elephant Park Hotel", location: "Pinnawala", category: "hospitality" },
+    { name: "Hotel Relidiya", location: "Kegalle", category: "hospitality" },
+    { name: "Sri Lanka Wildlife Conservation", location: "Wasgamuwa", category: "government" },
+    { name: "R.A.N Green Foods Exports (Pvt) Ltd", location: "Bandaragama", category: "food & beverage" },
+    { name: "Dissanayake Filling Station", location: "Rambukkana", category: "energy" },
+    { name: "Maam Biscuits Lanka (Pvt) Ltd", location: "Matale", category: "food & beverage" }
   ];
 
   const projects = [
     { id: 1, image: project1 },
     { id: 2, image: project2 },
-    { id: 3, image: project3 },
     { id: 4, image: project4 },
     { id: 5, image: project5 },
     { id: 6, image: project6 },
@@ -86,11 +92,9 @@ const Projects = () => {
     { id: 8, image: project8 },
     { id: 9, image: project9 },
     { id: 10, image: project10 },
-    { id: 11, image: project11 },
     { id: 12, image: project12 },
     { id: 13, image: project13 },
-    { id: 14, image: project14 },
-    { id: 15, image: project15 }
+    { id: 14, image: project14 }
   ];
 
   const filteredProjects = activeFilter === "all" 
