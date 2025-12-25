@@ -20,6 +20,10 @@ import project10 from "../assets/projects/10.webp";
 import project12 from "../assets/projects/12.webp";
 import project13 from "../assets/projects/18.webp";
 import project14 from "../assets/projects/19.jpg";
+import project15 from "../assets/projects/25.jpeg";
+import project16 from "../assets/projects/26.jpeg";
+import project17 from "../assets/projects/27.jpeg";
+import project18 from "../assets/projects/28.jpeg";
 
 const Projects = () => {
   const ref = useRef(null);
@@ -94,7 +98,11 @@ const Projects = () => {
     { id: 10, image: project10 },
     { id: 12, image: project12 },
     { id: 13, image: project13 },
-    { id: 14, image: project14 }
+    { id: 14, image: project14 },
+    { id: 15, image: project15 },
+    { id: 16, image: project16 },
+    { id: 17, image: project17 },
+    { id: 18, image: project18 },
   ];
 
   const filteredProjects = activeFilter === "all" 
