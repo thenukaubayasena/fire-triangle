@@ -69,7 +69,7 @@ const Banner = () => {
         >
           <a href="tel:+94767565634" style={{ textDecoration: 'none', width: '100%', maxWidth: '300px' }}>
             <PrimaryCTA whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <FaPhoneAlt /> Emergency Hotline
+              <FaPhoneAlt /> Hotline
             </PrimaryCTA>
           </a>
 
