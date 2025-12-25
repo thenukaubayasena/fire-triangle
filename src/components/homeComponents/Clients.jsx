@@ -24,10 +24,6 @@ const Clients = () => {
 
   const clients = [
     {
-      name: "Dinapala Group",
-      logo: brand_1 
-    },
-    {
       name: "Earl's Regent, Kandy",
       logo: brand_2
     },
@@ -50,10 +46,6 @@ const Clients = () => {
     {
       name: "Norwood Fashions",
       logo: brand_7
-    },
-    {
-      name: "University of Peradeniya",
-      logo: brand_8
     }
   ];
 
