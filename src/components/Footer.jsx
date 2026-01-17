@@ -15,9 +15,6 @@ const Footer = () => {
             <Logo src={logo} alt="Fire Triangle Logo" loading="lazy" />
           </LogoContainer>
           <Tagline>Your Complete Fire Safety Solution in Sri Lanka</Tagline>
-          {/* <CertificationBadge>
-            <FaShieldAlt /> ISO 9001 Certified
-          </CertificationBadge> */}
         </CompanyInfo>
 
         <FooterContent>
@@ -155,23 +152,6 @@ const Tagline = styled.p`
   
   @media (max-width: 480px) {
     font-size: 0.95rem;
-  }
-`;
-
-const CertificationBadge = styled.div`
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: rgba(211, 47, 47, 0.2);
-  color: #d32f2f;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  font-weight: 600;
-  font-size: 0.9rem;
-  
-  @media (max-width: 480px) {
-    font-size: 0.85rem;
-    padding: 0.4rem 0.8rem;
   }
 `;
 

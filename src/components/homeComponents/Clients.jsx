@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import { motion, useAnimation, useInView } from "framer-motion";
-import brand_1 from "../../assets/logos/dinapala.jpg";
 import brand_2 from "../../assets/logos/earls.jpg";
 import brand_3 from "../../assets/logos/bisma.png";
 import brand_4 from "../../assets/logos/sporting.png";

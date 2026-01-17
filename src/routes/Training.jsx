@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import { motion, useAnimation, useInView } from "framer-motion";
-import { FaFireExtinguisher, FaUserShield, FaPhoneAlt, FaChalkboardTeacher, FaCertificate, FaCalendarAlt, FaClock } from "react-icons/fa";
+import { FaFireExtinguisher, FaUserShield, FaPhoneAlt, FaChalkboardTeacher, FaCertificate } from "react-icons/fa";
 
 const Training = () => {
   const ref = useRef(null);
@@ -319,15 +319,6 @@ const CourseTitle = styled.h3`
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
   color: #222;
-`;
-
-const CourseDuration = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: #666;
-  margin-bottom: 1rem;
-  font-size: 0.9rem;
 `;
 
 const CourseDescription = styled.p`

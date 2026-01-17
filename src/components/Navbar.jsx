@@ -28,17 +28,6 @@ const Navbar = () => {
   }, [location.pathname]);
 
   const toggleMenu = () => setIsOpen(!isOpen);
-  
-  const toggleDropdown = (menu) => {
-    setDropdownOpen(dropdownOpen === menu ? null : menu);
-  };
-
-  // Sample dropdown items
-  const servicesItems = [
-    { name: "Fire Safety Audits", path: "/services/audits" },
-    { name: "Equipment Installation", path: "/services/installation" },
-    { name: "Maintenance Services", path: "/services/maintenance" },
-  ];
 
   return (
     <>
@@ -102,12 +91,6 @@ const Navbar = () => {
     </>
   );
 };
-
-// Animations
-const fadeIn = keyframes`
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
-`;
 
 // Top bar with contact info
 const TopBar = styled.div`
