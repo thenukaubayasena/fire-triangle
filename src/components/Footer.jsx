@@ -15,9 +15,9 @@ const Footer = () => {
             <Logo src={logo} alt="Fire Triangle Logo" loading="lazy" />
           </LogoContainer>
           <Tagline>Your Complete Fire Safety Solution in Sri Lanka</Tagline>
-          <CertificationBadge>
+          {/* <CertificationBadge>
             <FaShieldAlt /> ISO 9001 Certified
-          </CertificationBadge>
+          </CertificationBadge> */}
         </CompanyInfo>
 
         <FooterContent>

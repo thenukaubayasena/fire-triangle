@@ -1,13 +1,27 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import fireSafetyBg from "../../assets/fire background.jpg";
 import { motion, useAnimation, useInView } from "framer-motion";
-import { FaPhoneAlt, FaShieldAlt, FaFireExtinguisher } from "react-icons/fa";
+import { FaShieldAlt } from "react-icons/fa";
+
+import fireSafetyBg from "../../assets/fire background.jpg";
+import fireSafetyMobileBg from "../../assets/fire background 1.jpg";
 
 const Banner = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   const animation = useAnimation();
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     if (isInView) {
@@ -16,189 +30,88 @@ const Banner = () => {
   }, [isInView, animation]);
 
   return (
-    <HeroContainer>
+    <HeroContainer ref={ref}>
+      <BackgroundImage 
+        src={isMobile ? fireSafetyMobileBg : fireSafetyBg} 
+        alt="Fire safety background" 
+      />
       <BackgroundOverlay />
-      <BackgroundImage src={fireSafetyBg} alt="Fire safety background" />
       
       <ContentWrapper>
         <Tagline
           variants={{
-            hidden: { opacity: 0, y: 20 },
+            hidden: { opacity: 0, y: -20 },
             visible: { opacity: 1, y: 0 },
           }}
           initial="hidden"
           animate={animation}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
         >
-          <FaShieldAlt /> SRI LANKA'S LEADING FIRE SAFETY SPECIALISTS
+          <IconWrapper>
+            <FaShieldAlt />
+          </IconWrapper>
+          <TaglineText>Sri Lanka's Leading Fire Safety Specialists</TaglineText>
         </Tagline>
-        
-        <MainHeading ref={ref}>
-          <AnimatedLine
-            variants={{
-              hidden: { opacity: 0, y: 50 },
-              visible: { opacity: 1, y: 0 },
-            }}
-            initial="hidden"
-            animate={animation}
-            transition={{ duration: 0.8, delay: 0.4, type: "spring" }}
-          >
-            Comprehensive <Highlight>Fire Protection</Highlight>
-          </AnimatedLine>
-          <AnimatedLine
-            variants={{
-              hidden: { opacity: 0, y: 50 },
-              visible: { opacity: 1, y: 0 },
-            }}
-            initial="hidden"
-            animate={animation}
-            transition={{ duration: 0.8, delay: 0.6, type: "spring" }}
-          >
-            Solutions Since 2005
-          </AnimatedLine>
-        </MainHeading>
-        
-        <CTAWrap
-          variants={{
-            hidden: { opacity: 0, y: 30 },
-            visible: { opacity: 1, y: 0 },
-          }}
-          initial="hidden"
-          animate={animation}
-          transition={{ duration: 0.6, delay: 0.8 }}
-        >
-          <a href="tel:+94767565634" style={{ textDecoration: 'none', width: '100%', maxWidth: '300px' }}>
-            <PrimaryCTA whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <FaPhoneAlt /> Hotline
-            </PrimaryCTA>
-          </a>
-
-          <a href="/services" style={{ textDecoration: 'none', width: '100%', maxWidth: '300px' }}>
-            <SecondaryCTA whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <FaFireExtinguisher /> Our Services
-            </SecondaryCTA>
-          </a>
-        </CTAWrap>
-        
-        <StatsWrapper
-          variants={{
-            hidden: { opacity: 0 },
-            visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
-          }}
-          initial="hidden"
-          animate={animation}
-          transition={{ delay: 1 }}
-        >
-          <StatItem
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0 },
-            }}
-          >
-            <StatNumber>500+</StatNumber>
-            <StatLabel>Projects Completed</StatLabel>
-          </StatItem>
-          <StatDivider />
-          <StatItem
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0 },
-            }}
-          >
-            <StatNumber>24/7</StatNumber>
-            <StatLabel>Emergency Response</StatLabel>
-          </StatItem>
-          <StatDivider />
-          <StatItem
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0 },
-            }}
-          >
-            <StatNumber>ISO</StatNumber>
-            <StatLabel>Certified</StatLabel>
-          </StatItem>
-        </StatsWrapper>
       </ContentWrapper>
     </HeroContainer>
   );
 };
 
-// Styled Components - UPDATED FOR BETTER MOBILE RESPONSIVENESS
+// Styled Components
 const HeroContainer = styled.section`
   position: relative;
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  padding: 100px 6% 60px;
   isolation: isolate;
 
-  @media (max-width: 1200px) {
-    min-height: 90vh;
-    padding: 100px 5% 50px;
-  }
-
-  @media (max-width: 1024px) {
-    min-height: 80vh;
-    padding: 90px 4% 40px;
-  }
-
   @media (max-width: 768px) {
-    min-height: 70vh;
-    padding: 80px 4% 30px;
+    height: 100vh;
+    min-height: 600px;
+    align-items: flex-end;
+    padding-bottom: 15%;
   }
 
   @media (max-width: 480px) {
-    min-height: 85vh;
-    padding: 70px 3% 20px;
-  }
-
-  @media (max-width: 380px) {
-    min-height: 90vh;
-    padding: 60px 2% 15px;
+    height: 100vh;
+    min-height: 500px;
+    padding-bottom: 12%;
   }
 `;
 
 const BackgroundImage = styled.img`
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
-  z-index: -2;
-  filter: brightness(0.65);
-
-  /* Mobile-specific optimizations */
-  @media (max-width: 768px) {
-    object-position: center center;
-  }
-
-  /* For very small devices */
-  @media (max-width: 480px) {
-    object-fit: cover;
-    object-position: center center;
-  }
+  z-index: 1;
 `;
 
 const BackgroundOverlay = styled.div`
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   background: linear-gradient(
     135deg,
-    rgba(211, 47, 47, 0.25) 0%,
+    rgba(220, 38, 38, 0.3) 0%,
+    rgba(0, 0, 0, 0.75) 50%,
     rgba(0, 0, 0, 0.85) 100%
   );
-  z-index: -1;
-  
-  /* Stronger overlay for mobile for better text readability */
+  z-index: 2;
+
   @media (max-width: 768px) {
     background: linear-gradient(
       135deg,
-      rgba(211, 47, 47, 0.2) 0%,
+      rgba(220, 38, 38, 0.25) 0%,
+      rgba(0, 0, 0, 0.8) 75%,
       rgba(0, 0, 0, 0.9) 100%
     );
   }
@@ -207,360 +120,111 @@ const BackgroundOverlay = styled.div`
 const ContentWrapper = styled.div`
   position: relative;
   z-index: 3;
-  text-align: center;
-  max-width: 1280px;
-  width: 100%;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
-  padding: 20px 0;
-
-  @media (max-width: 1024px) {
-    gap: 1.2rem;
-  }
+  justify-content: center;
+  width: 100%;
+  padding: 0 5%;
+  max-width: 1400px;
 
   @media (max-width: 768px) {
-    gap: 1rem;
-    padding: 10px 0;
+    padding: 0 4%;
   }
 
   @media (max-width: 480px) {
-    gap: 0.8rem;
-    padding: 0;
-  }
-
-  @media (max-width: 380px) {
-    gap: 0.6rem;
+    padding: 0 3%;
   }
 `;
 
 const Tagline = styled(motion.div)`
-  font-size: clamp(0.9rem, 2vw, 1.2rem);
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.95);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
-  margin-bottom: 0.5rem;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  padding: 0.5rem 1rem;
-  background: rgba(0, 0, 0, 0.4);
-  border-radius: 4px;
-  flex-wrap: wrap;
-
-  @media (max-width: 768px) {
-    font-size: clamp(0.8rem, 1.5vw, 1rem);
-    letter-spacing: 1.5px;
-    padding: 0.4rem 0.8rem;
-    gap: 0.5rem;
-    margin-bottom: 0.3rem;
-  }
-
-  @media (max-width: 480px) {
-    font-size: clamp(0.75rem, 1.2vw, 0.9rem);
-    letter-spacing: 1px;
-    gap: 0.4rem;
-    padding: 0.35rem 0.7rem;
-    line-height: 1.3;
-    text-align: center;
-    width: 95%;
-  }
-
-  @media (max-width: 380px) {
-    font-size: 0.7rem;
-    padding: 0.3rem 0.6rem;
-  }
-`;
-
-const MainHeading = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  margin-bottom: 1rem;
-  width: 100%;
-  padding: 0 10px;
-
-  @media (max-width: 768px) {
-    gap: 0.3rem;
-    margin-bottom: 0.8rem;
-    padding: 0 5px;
-  }
-
-  @media (max-width: 480px) {
-    gap: 0.2rem;
-    margin-bottom: 0.6rem;
-    padding: 0;
-  }
-`;
-
-const AnimatedLine = styled(motion.h1)`
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  margin: 0;
-  line-height: 1.2;
-  color: #fff;
-  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-  font-size: clamp(2.2rem, 5vw, 4.2rem);
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  
-  &:first-child {
-    margin-bottom: 0.4rem;
-  }
-
-  @media (max-width: 1024px) {
-    font-size: clamp(2rem, 4.5vw, 3.5rem);
-  }
-
-  @media (max-width: 768px) {
-    font-size: clamp(1.8rem, 4vw, 3rem);
-    line-height: 1.1;
-  }
-
-  @media (max-width: 480px) {
-    font-size: clamp(1.5rem, 3.5vw, 2.2rem);
-    line-height: 1.05;
-  }
-
-  @media (max-width: 380px) {
-    font-size: clamp(1.3rem, 3vw, 1.8rem);
-  }
-`;
-
-const Highlight = styled.span`
-  color: #ffd700;
-  position: relative;
-  display: inline-block;
-  
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: 4px;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: rgba(211, 47, 47, 0.7);
-    z-index: -1;
-    border-radius: 2px;
-
-    @media (max-width: 768px) {
-      bottom: 3px;
-      height: 3px;
-    }
-
-    @media (max-width: 480px) {
-      bottom: 2px;
-      height: 2px;
-    }
-  }
-`;
-
-const CTAWrap = styled(motion.div)`
-  display: flex;
-  gap: 1.5rem;
-  margin-top: 1.5rem;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: 100%;
-  max-width: 700px;
-  padding: 0 15px;
-
-  @media (max-width: 768px) {
-    gap: 1rem;
-    margin-top: 1.2rem;
-    padding: 0 10px;
-  }
-
-  @media (max-width: 480px) {
-    flex-direction: column;
-    align-items: center;
-    gap: 0.8rem;
-    margin-top: 1rem;
-    padding: 0 10px;
-  }
-
-  @media (max-width: 380px) {
-    gap: 0.6rem;
-    margin-top: 0.8rem;
-  }
-`;
-
-const BaseCTA = styled(motion.button)`
-  padding: 1rem 2rem;
-  font-size: clamp(0.95rem, 2vw, 1.1rem);
-  font-weight: 500;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  width: 100%;
-  max-width: 300px;
-  transition: all 0.3s ease;
-
-  @media (max-width: 768px) {
-    padding: 0.9rem 1.8rem;
-    max-width: 260px;
-    font-size: clamp(0.9rem, 1.8vw, 1rem);
-  }
-
-  @media (max-width: 480px) {
-    padding: 0.8rem 1.5rem;
-    max-width: 100%;
-    font-size: clamp(0.85rem, 1.6vw, 0.95rem);
-    min-height: 50px;
-  }
-
-  @media (max-width: 380px) {
-    padding: 0.7rem 1.2rem;
-    min-height: 45px;
-  }
-`;
-
-const PrimaryCTA = styled(BaseCTA)`
-  background-color: #d32f2f;
-  color: #fff;
-
-  &:hover {
-    background-color: #b71c1c;
-    box-shadow: 0 6px 18px rgba(211, 47, 47, 0.4);
-  }
-`;
-
-const SecondaryCTA = styled(BaseCTA)`
-  background-color: rgba(255, 255, 255, 0.95);
-  color: #333;
-
-  &:hover {
-    background-color: #fff;
-    box-shadow: 0 6px 18px rgba(255, 255, 255, 0.3);
-  }
-`;
-
-const StatsWrapper = styled(motion.div)`
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  margin-top: 2rem;
-  flex-wrap: wrap;
-  justify-content: center;
+  gap: 1rem;
+  padding: 1.25rem 2.5rem;
   background: rgba(0, 0, 0, 0.6);
-  padding: 1.5rem 2rem;
-  border-radius: 10px;
-  backdrop-filter: blur(6px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  width: 100%;
-  max-width: 900px;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(220, 38, 38, 0.4);
+  border-radius: 60px;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(220, 38, 38, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 
   @media (max-width: 1024px) {
-    gap: 1.5rem;
-    padding: 1.2rem 1.5rem;
+    padding: 1.1rem 2.2rem;
+    gap: 0.9rem;
   }
 
   @media (max-width: 768px) {
-    gap: 1.2rem;
-    padding: 1rem 1.2rem;
-    margin-top: 1.5rem;
-    max-width: 95%;
+    padding: 1rem 1.8rem;
+    gap: 0.75rem;
+    border-width: 1.5px;
   }
 
   @media (max-width: 480px) {
-    flex-direction: column;
-    gap: 0.8rem;
-    padding: 1rem;
-    margin-top: 1.2rem;
-    width: 100%;
-  }
-
-  @media (max-width: 380px) {
-    padding: 0.8rem;
-    margin-top: 1rem;
+    padding: 0.9rem 1.5rem;
     gap: 0.6rem;
+    border-radius: 50px;
+  }
+
+  @media (max-width: 380px) {
+    padding: 0.8rem 1.3rem;
+    gap: 0.5rem;
   }
 `;
 
-const StatItem = styled(motion.div)`
+const IconWrapper = styled.div`
   display: flex;
-  flex-direction: column;
   align-items: center;
-  min-width: 100px;
+  justify-content: center;
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  color: #dc2626;
+  filter: drop-shadow(0 0 8px rgba(220, 38, 38, 0.6));
+  flex-shrink: 0;
 
   @media (max-width: 768px) {
-    min-width: 80px;
+    font-size: clamp(1.1rem, 2.5vw, 1.8rem);
   }
 
   @media (max-width: 480px) {
-    min-width: auto;
-    width: 100%;
-    padding: 0.2rem 0;
+    font-size: clamp(1rem, 2vw, 1.4rem);
+  }
+
+  @media (max-width: 380px) {
+    font-size: 0.9rem;
   }
 `;
 
-const StatNumber = styled.span`
-  font-family: 'Montserrat', sans-serif;
-  font-size: clamp(1.8rem, 4vw, 2.5rem);
+const TaglineText = styled.span`
+  font-size: clamp(0.75rem, 2.2vw, 1.4rem);
   font-weight: 700;
-  color: #ffd700;
-  line-height: 1;
-  margin-bottom: 0.3rem;
-
-  @media (max-width: 768px) {
-    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
-  }
-
-  @media (max-width: 480px) {
-    font-size: clamp(1.4rem, 3vw, 2rem);
-  }
-
-  @media (max-width: 380px) {
-    font-size: clamp(1.3rem, 2.8vw, 1.8rem);
-  }
-`;
-
-const StatLabel = styled.p`
-  font-size: clamp(0.75rem, 1.8vw, 0.9rem);
-  color: rgba(255, 255, 255, 0.95);
+  color: #ffffff;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: 500;
-  margin: 0;
-  text-align: center;
+  letter-spacing: 0.15em;
+  text-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.6),
+    0 0 20px rgba(220, 38, 38, 0.3);
+  line-height: 1.2;
+  white-space: nowrap;
 
-  @media (max-width: 480px) {
-    font-size: clamp(0.7rem, 1.6vw, 0.85rem);
+  @media (max-width: 1024px) {
+    font-size: clamp(0.7rem, 2vw, 1.3rem);
+    letter-spacing: 0.12em;
   }
-
-  @media (max-width: 380px) {
-    font-size: clamp(0.65rem, 1.5vw, 0.8rem);
-  }
-`;
-
-const StatDivider = styled.div`
-  width: 1px;
-  height: 40px;
-  background: rgba(255, 255, 255, 0.25);
 
   @media (max-width: 768px) {
-    height: 35px;
+    font-size: clamp(0.65rem, 1.8vw, 1.1rem);
+    letter-spacing: 0.1em;
   }
 
   @media (max-width: 480px) {
-    width: 60px;
-    height: 1px;
-    margin: 0 auto;
+    font-size: clamp(0.6rem, 1.5vw, 0.85rem);
+    letter-spacing: 0.08em;
   }
 
   @media (max-width: 380px) {
-    width: 50px;
+    font-size: 0.55rem;
+    letter-spacing: 0.06em;
   }
 `;
 
