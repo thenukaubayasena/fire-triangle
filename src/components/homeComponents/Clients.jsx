@@ -7,7 +7,6 @@ import brand_4 from "../../assets/logos/sporting.png";
 import brand_5 from "../../assets/logos/digana.jpg";
 import brand_6 from "../../assets/logos/rainco.jpg";
 import brand_7 from "../../assets/logos/norwood.jpeg";
-import brand_8 from "../../assets/logos/pera.jpg";
 
 
 const Clients = () => {

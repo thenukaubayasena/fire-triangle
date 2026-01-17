@@ -71,14 +71,14 @@ const HeroContainer = styled.section`
   @media (max-width: 768px) {
     height: 100vh;
     min-height: 600px;
-    align-items: flex-end;
-    padding-bottom: 15%;
+    align-items: flex-start;
+    padding-top: 15%;
   }
 
   @media (max-width: 480px) {
     height: 100vh;
     min-height: 500px;
-    padding-bottom: 12%;
+    padding-top: 20%;
   }
 `;
 
@@ -111,7 +111,7 @@ const BackgroundOverlay = styled.div`
     background: linear-gradient(
       135deg,
       rgba(220, 38, 38, 0.25) 0%,
-      rgba(0, 0, 0, 0.8) 75%,
+      rgba(0, 0, 0, 0.8) 50%,
       rgba(0, 0, 0, 0.9) 100%
     );
   }
@@ -140,7 +140,7 @@ const Tagline = styled(motion.div)`
   display: inline-flex;
   align-items: center;
   gap: 1rem;
-  padding: 1.25rem 2.5rem;
+  padding: 1.25rem 5.5rem;
   background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(10px);
   border: 2px solid rgba(220, 38, 38, 0.4);
